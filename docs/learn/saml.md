@@ -50,7 +50,7 @@ In case of the SP being a mobile applications and single-page applications, publ
 Exposing private keys in app code or browser JavaScript is a security nightmare, as attackers can potentially extract them. Even obfuscation attempts are futile against determined adversaries. No other flows are available that would bind requests cryptographically to a specific SP.
 
 **Most secure SAML flows are not available for mobile apps**
-Moreover, SAML's most secure flows rely on back-channel communication, such as [SAML HTTP Artifact Binding](saml-http-artifact-binding), or POST requests, which is incompatible with the architecture of mobile apps and SPAs. This, coupled with the lack of workarounds that are available in OpenID Connect / OAuth 2.0, leaves SAML messages vulnerable to tampering.
+Moreover, SAML's most secure flows rely on back-channel communication, such as SAML HTTP Artifact Binding, or POST requests, which is incompatible with the architecture of mobile apps and SPAs. This, coupled with the lack of workarounds that are available in OpenID Connect / OAuth 2.0, leaves SAML messages vulnerable to tampering.
 
 SAML's design, which prioritizes server-side security, clashes with the client-side nature of mobile apps and SPAs, leading to unavoidable security risks.
 
