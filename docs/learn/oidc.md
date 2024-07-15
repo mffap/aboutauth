@@ -13,15 +13,15 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 
 ## OpenID Connect Related
 
-* [Identity Provider](identity-provider)
+* Identity Provider
 * Scopes
 * Claims
 * Response Types
 
 Tokens
 
-* [Access Tokens](./access-token)
-* [ID Tokens](id-token)
+* Access Tokens
+* ID Tokens
 * Refresh Tokens
 
 Verifying tokens
