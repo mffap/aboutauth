@@ -1,0 +1,1 @@
+# SAML HTTP Artifact Binding
