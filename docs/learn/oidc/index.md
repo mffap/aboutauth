@@ -14,14 +14,14 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 ### Minimal
 
 * [OpenID Connect Core 1.0 incorporating errata set 2](https://openid.net/specs/openid-connect-core-1_0.html) (openid.net)
-  * ID Token
+  * [ID Token](id-token)
 * Authentication
   * Authorization Code Flow
   * Implicit Flow
   * Hybrid Flow
 * Initiating Login from a Third Party
 * Claims
-* [Passing Request Parameters as JWTs](./oidc/passing-request-paramaters-as-jwt.md) - passing information in a signed and encrypted token
+* [Passing Request Parameters as JWTs](passing-request-paramaters-as-jwt) - passing information in a signed and encrypted token
 * Self-Issued OpenID Provider
 * Subject Identifier Types
 * Client Authentication
@@ -38,7 +38,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 
 Dynamic
 
-* [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html) (openid.net)
+* [OpenID Connect Discovery 1.0](oidc-discovery)
 * [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html) (openid.net)
 
 Complete
@@ -56,7 +56,7 @@ Complete
 Tokens
 
 * Access Tokens
-* ID Tokens
+* [ID Tokens](id-token)
 * Refresh Tokens
 
 Verifying tokens
@@ -86,6 +86,9 @@ Flow Types
 * [JSON Web Key (JWK)](https://datatracker.ietf.org/doc/html/rfc7517)
 * [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/rfc7518)
 * [WebFinger](https://datatracker.ietf.org/doc/html/rfc7033)
+* [Authentication Method Reference Values](https://datatracker.ietf.org/doc/html/rfc8176)
+* [OpenID Connect MODRNA Authentication Profile 1.0](https://openid.net/specs/openid-connect-modrna-authentication-1_0.html)
+* [An IANA Registry for Level of Assurance (LoA) Profiles [RFC6711]](https://www.rfc-editor.org/rfc/rfc6711.txt)
 
 ## OpenID Connect Resources
 
