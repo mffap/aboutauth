@@ -1,6 +1,5 @@
 {
-  "label": "OpenID Connect (OIDC)",
-  "position": 1,
+  "label": "JSON Web Token (JWT)",
   "link": {
     "type": "doc",
     "id": "index"

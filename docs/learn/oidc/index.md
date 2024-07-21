@@ -14,14 +14,14 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 ### Minimal
 
 * [OpenID Connect Core 1.0 incorporating errata set 2](https://openid.net/specs/openid-connect-core-1_0.html) (openid.net)
-  * [ID Token](id-token)
+  * [ID Token](id-token.md)
 * Authentication
   * Authorization Code Flow
   * Implicit Flow
   * Hybrid Flow
 * Initiating Login from a Third Party
 * Claims
-* [Passing Request Parameters as JWTs](passing-request-paramaters-as-jwt) - passing information in a signed and encrypted token
+* [Passing Request Parameters as JWTs](passing-request-paramaters-as-jwt.md) - passing information in a signed and encrypted token
 * Self-Issued OpenID Provider
 * Subject Identifier Types
 * Client Authentication

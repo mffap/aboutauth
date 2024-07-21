@@ -37,8 +37,8 @@ Tokens
 
 - Access Token
 - Opaque Tokens
-- JWT Tokens
-- Javascript Object Signing and Encryption (JOSE)
+- [JWT Tokens](./jwt/)
+- [Javascript Object Signing and Encryption (JOSE)](./jose/)
 - Assertion
 - Token Verification 
   - JWT

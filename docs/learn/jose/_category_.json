@@ -1,6 +1,5 @@
 {
-  "label": "JOSE",
-  "position": 2,
+  "label": "Javascript Object Signing and Encryption (JOSE)",
   "link": {
     "type": "doc",
     "id": "index"
