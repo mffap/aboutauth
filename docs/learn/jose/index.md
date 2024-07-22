@@ -3,3 +3,4 @@
 * [JSON Web Signature (JWS)](json-web-signature-jws)
 * [JSON Web Encryption (JWE)](json-web-encryption-jwe)
 * [JSON Web Key (JWK)](json-web-key-jwk)
+* [JSON Web Algorithms (JWA)](json-web-algorithms-jwa)

@@ -7,10 +7,10 @@ tags: [oidc, jwt]
 
 https://openid.net/specs/openid-connect-core-1_0.html#IDToken
 
-An ID Token in OpenID Connect is a digital security document, specifically a JSON Web Token (JWT), that acts as proof a user has been authenticated by an OpenID Provider (OP).
+An ID Token in OpenID Connect is a digital security document, specifically a [JSON Web Token (JWT)](../jwt/), that acts as proof a user has been authenticated by an OpenID Provider (OP).
 It contains claims (information) about the user and the authentication event.
 
-ID Tokens are signed using JWS and optionally the signed token is encrypted using JWS and JWE to provide integrity, authenticity, and confidentiality.
+ID Tokens are signed using [JWS](../jose/json-web-signature-jws.md) and optionally the signed token is encrypted using [JWS](../jose/json-web-signature-jws.md) and [JWE](../jose/json-web-encryption-jwe.md) to provide integrity, authenticity, and confidentiality.
 
 ```json title="ID Token"
 {
@@ -41,12 +41,12 @@ ID Tokens are signed using JWS and optionally the signed token is encrypted usin
 }
 ```
 
-Related:
+## Related
 
 * [Level of Assurance](../authentication/level-of-assurance)
 * [Authentication Method Reference Values](../jwt/authentication-method-reference)
+* [JSON Web Token (JWT)](../jwt/)
 
 ## Resources
 
-* [JSON Web Token (JWT) [RFC7519]](https://www.rfc-editor.org/rfc/rfc7519.html)
 * https://stackoverflow.com/questions/52632690/can-someone-explain-acr-return-values-in-oidc
