@@ -5,6 +5,7 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+const rehypeExternalLinks =  require('rehype-external-links').default;
 const github_organization = 'mffap'
 const github_name = 'aboutauth'
 const github_url = 'https://github.com/' + github_organization + '/' + github_name
@@ -41,7 +42,6 @@ const config = {
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
-
   presets: [
     [
       'classic',
@@ -54,6 +54,22 @@ const config = {
           exclude: ['**/drafts/**'],
           editUrl:
             github_url + '/tree/main/packages/create-docusaurus/templates/shared/',
+          rehypePlugins: [
+            [
+              rehypeExternalLinks,
+              {
+                target: '_blank',
+                content(node) {
+                  let url = new URL(node.properties.href)
+                  return {type: 'text', value: ` (${url.hostname})` }
+                },
+                // content: [
+                //   {type: 'text', value: ' ('},
+                //   {type: 'text', value: ')'},
+                // ]
+              }
+            ]
+          ]
         },
         blog: {
           showReadingTime: true,
