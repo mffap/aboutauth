@@ -7,8 +7,8 @@ tags: []
 
 ## Protocols used in federated authentication
 
-- [OpenID Connect (OIDC)](oidc)
-- [Security Assertion Markup Language (SAML)](saml)
+- [OpenID Connect (OIDC)](../learn/oidc/)
+- [Security Assertion Markup Language (SAML)](../learn/saml)
 - OAuth 2.0
 
 Federated authentication

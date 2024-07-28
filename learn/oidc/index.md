@@ -14,8 +14,8 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 ### Minimal
 
 * [OpenID Connect Core 1.0 incorporating errata set 2](https://openid.net/specs/openid-connect-core-1_0.html) (openid.net)
-  * [ID Token](id-token.md)
-* Authentication
+  * [ID Token](id-token)
+* [Authentication](authentication-flows)
   * Authorization Code Flow
   * Implicit Flow
   * Hybrid Flow

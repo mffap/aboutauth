@@ -37,7 +37,7 @@ ID Tokens are signed using [JWS](../jose/json-web-signature-jws.md) and optional
   // Authorized party as OAuth 2.0 client_id to which the ID Token was issued
   "azp": "170084138898948353",
   "at_hash": "", //Authorized Party
-  "c_hash": "",
+  "c_hash": "", // Code hash value mitigating token substitution (Hybrid Flow)
 }
 ```
 
