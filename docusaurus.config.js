@@ -51,6 +51,8 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+          path: './learn',
+          routeBasePath: 'learn',
           exclude: ['**/drafts/**'],
           editUrl:
             github_url + '/tree/main/packages/create-docusaurus/templates/shared/',
@@ -120,14 +122,19 @@ const config = {
         style: 'light',
         links: [
           {
-            title: 'Docs',
+            title: 'About Auth',
             items: [
               {
                 label: 'Learn',
-                to: '/docs/learn',
+                to: '/learn',
+              },
+              {
+                label: 'Resources',
+                to: '/resources',
               },
             ],
           },
+          
           // {
           //   title: 'Community',
           //   items: [
@@ -164,6 +171,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['json'],
       },
     }),
 };

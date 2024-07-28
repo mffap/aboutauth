@@ -3,12 +3,12 @@ sidebar_position: 1
 tags: []
 ---
 
-# Overview
+# Learn About Auth
 
-Protocols used in federated authentication
+## Protocols used in federated authentication
 
-- [OpenID Connect (OIDC)](oidc.md)
-- [Security Assertion Markup Language (SAML)](saml.md)
+- [OpenID Connect (OIDC)](../learn/oidc/)
+- [Security Assertion Markup Language (SAML)](../learn/saml)
 - OAuth 2.0
 
 Federated authentication
@@ -37,9 +37,13 @@ Tokens
 
 - Access Token
 - Opaque Tokens
-- JWT Tokens
-- Javascript Object Signing and Encryption (JOSE)
+- [JWT Tokens](./jwt/)
+- [Javascript Object Signing and Encryption (JOSE)](./jose/)
 - Assertion
+- Token Verification 
+  - JWT
+  - Introspection
+  - Caching Considerations
 
 Authorization
 

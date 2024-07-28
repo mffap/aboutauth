@@ -7,6 +7,35 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
+const cardData = [
+  {
+    title: 'OpenID Connect',
+    description: 'A simple protocol for authentication and authorization',
+    image: '/img/openid-connect.png',
+    to: '/openid-connect',
+  }]
+
+function CardGrid({ cards }) {
+  return (
+    <div className="card-grid">
+      {cards.map((card) => (
+        <Card key={card.title} {...card} />
+      ))}
+    </div>
+  );
+}
+
+function Card({ title, description, image, to }) {
+  return (
+    <Link to={to} className="card">
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </Link>
+  );
+}
+
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -23,6 +52,7 @@ function HomepageHeader() {
             Docusaurus Tutorial - 5min ⏱️
           </Link>
         </div> */}
+
       </div>
     </header>
   );
