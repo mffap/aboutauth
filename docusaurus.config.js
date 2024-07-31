@@ -41,6 +41,7 @@ const config = {
   markdown: {
     mermaid: true,
   },
+  trailingSlash: true,
   themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
@@ -81,6 +82,10 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        gtag: {
+          trackingID: 'G-EGCL6E3Q3L',
+          anonymizeIP: true,
+        }
       }),
     ],
   ],
