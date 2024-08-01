@@ -41,6 +41,7 @@ const config = {
   markdown: {
     mermaid: true,
   },
+  trailingSlash: true,
   themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
