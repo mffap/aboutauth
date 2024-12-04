@@ -7,9 +7,44 @@ The beauty of OIDC lies in its simplicity and flexibility. It allows your users 
 
 OIDC is not just for web apps. It works seamlessly with mobile apps, single-page apps, and even server-side apps. It's a versatile tool in your identity management arsenal.
 
-## OpenID Connect Resources
+## Industry Standard
 
-* [OIDC Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1) (okta.com)
+### OpenID Connect Protocol Suite
+
+### Minimal
+
+* [OpenID Connect Core 1.0 incorporating errata set 2](https://openid.net/specs/openid-connect-core-1_0.html) (openid.net)
+  * [ID Token](id-token)
+* [Authentication](authentication-flows)
+  * Authorization Code Flow
+  * Implicit Flow
+  * Hybrid Flow
+* Initiating Login from a Third Party
+* Claims
+* [Passing Request Parameters as JWTs](passing-request-paramaters-as-jwt.md) - passing information in a signed and encrypted token
+* Self-Issued OpenID Provider
+* Subject Identifier Types
+* Client Authentication
+* Signatures and Encryption
+* Offline Access
+* Using Refresh Tokens
+* Serializations
+* String Operations
+* Considerations
+  * Implementation
+  * Security
+  * Privacy
+  * IANA
+
+Dynamic
+
+* [OpenID Connect Discovery 1.0](oidc-discovery)
+* [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html) (openid.net)
+
+Complete
+
+* [OpenID Connect Session Management 1.0](https://openid.net/specs/openid-connect-session-1_0.html) (openid.net)
+* [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html) (openid.net)
 
 ## OpenID Connect Related
 
@@ -21,7 +56,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 Tokens
 
 * Access Tokens
-* ID Tokens
+* [ID Tokens](id-token)
 * Refresh Tokens
 
 Verifying tokens
@@ -38,24 +73,6 @@ Flow Types
 * Client Credentials
 * Resource Owner Password
 
-## Industry Standard
-
-### OpenID Connect Protocol Suite
-
-Minimal
-
-* [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html) (openid.net)
-
-Dynamic
-
-* [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html) (openid.net)
-* [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html) (openid.net)
-
-Complete
-
-* [OpenID Connect Session Management 1.0](https://openid.net/specs/openid-connect-session-1_0.html) (openid.net)
-* [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html) (openid.net)
-
 ### Protocols underpinning OpenID Connect
 
 * [The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
@@ -63,9 +80,16 @@ Complete
 * [Assertion Framework for OAuth 2.0 Client Authentication and Authorization Grants](https://datatracker.ietf.org/doc/html/rfc7521)
 * [JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants](https://datatracker.ietf.org/doc/html/rfc7523)
 * [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html)
-* [JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519)
-* [JSON Web Signature (JWS)](https://datatracker.ietf.org/doc/html/rfc7515)
+* [JSON Web Token (JWT)](../jwt/)
+* [JSON Web Signature (JWS)](../jose/json-web-signature-jws.md)
 * [JSON Web Encryption (JWE)](https://datatracker.ietf.org/doc/html/rfc7516)
 * [JSON Web Key (JWK)](https://datatracker.ietf.org/doc/html/rfc7517)
 * [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/rfc7518)
 * [WebFinger](https://datatracker.ietf.org/doc/html/rfc7033)
+* [Authentication Method Reference Values](https://datatracker.ietf.org/doc/html/rfc8176)
+* [OpenID Connect MODRNA Authentication Profile 1.0](https://openid.net/specs/openid-connect-modrna-authentication-1_0.html)
+* [An IANA Registry for Level of Assurance (LoA) Profiles [RFC6711]](https://www.rfc-editor.org/rfc/rfc6711.txt)
+
+## OpenID Connect Resources
+
+* [OIDC Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1) (okta.com)

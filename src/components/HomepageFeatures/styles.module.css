@@ -9,3 +9,8 @@
   height: 200px;
   width: 200px;
 }
+
+.features a {
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+}
