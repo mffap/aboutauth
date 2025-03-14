@@ -9,7 +9,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 
 ## OpenID Connect Resources
 
-* [OIDC Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1) (okta.com)
+* [OIDC Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1)
 
 ## OpenID Connect Related
 
@@ -27,7 +27,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 ### Verifying tokens
 
 * Introspection
-* JWK vertification
+* JWK verification
 
 ### Flow Types
 
