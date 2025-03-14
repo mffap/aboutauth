@@ -10,6 +10,8 @@ tags: [oidc, jwt]
 An ID Token in OpenID Connect is a digital security document, specifically a [JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519), that acts as proof a user has been authenticated by an OpenID Provider (OP).
 It contains claims (information) about the user and the authentication event.
 
+OpenID Connect introduces the ID Token as an extension to OAuth 2.0 that allows users to be authenticated. The ID Token contains information in form of Claims about the authentication.
+
 ID Tokens are signed using [JWS](https://datatracker.ietf.org/doc/html/rfc7515) and optionally the signed token is encrypted using JWS and [JWE](https://datatracker.ietf.org/doc/html/rfc7516) to provide integrity, authenticity, and confidentiality.
 
 ## Example of an ID Token

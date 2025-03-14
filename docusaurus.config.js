@@ -139,6 +139,9 @@ const config = {
                 label: 'Resources',
                 to: '/resources',
               },
+              {
+                html: '<a href="#" class="cky-banner-element footer__link-item">Cookie Preferences</a>',
+              },
             ],
           },
           // {
