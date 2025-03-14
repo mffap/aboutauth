@@ -7,10 +7,6 @@ The beauty of OIDC lies in its simplicity and flexibility. It allows your users 
 
 OIDC is not just for web apps. It works seamlessly with mobile apps, single-page apps, and even server-side apps. It's a versatile tool in your identity management arsenal.
 
-## OpenID Connect Resources
-
-* [OIDC Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1)
-
 ## OpenID Connect Related
 
 * Identity Provider
@@ -69,3 +65,7 @@ Complete
 * [JSON Web Key (JWK)](https://datatracker.ietf.org/doc/html/rfc7517)
 * [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/rfc7518)
 * [WebFinger](https://datatracker.ietf.org/doc/html/rfc7033)
+
+## More learning resources about OpenID Connect
+
+* [OIDC Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1)
