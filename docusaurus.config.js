@@ -129,11 +129,15 @@ const config = {
         style: 'light',
         links: [
           {
-            title: 'Docs',
+            title: 'About Auth',
             items: [
               {
                 label: 'Learn',
                 to: '/docs/learn',
+              },
+              {
+                label: 'Resources',
+                to: '/resources',
               },
             ],
           },
