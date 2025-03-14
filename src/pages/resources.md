@@ -7,6 +7,12 @@ hide_table_of_contents: false
 ## Awesome Lists
 
 * https://github.com/kdeldycke/awesome-iam
+* https://github.com/casbin/awesome-auth
+
+## Useful resources
+
+* [What is identity and access management (IAM)?](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
+* [oauth.net](https://oauth.net/2/)
 
 ## Courses
 

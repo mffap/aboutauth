@@ -45,6 +45,7 @@ Authorization
 
 - Role Based Access Management (RBAC)
 - Attribute Based Access Management (ABAC)
+- Fine Grained Authorization
 
 Identity Management
 

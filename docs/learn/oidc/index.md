@@ -1,15 +1,13 @@
 
 # OpenID Connect (OIDC)
 
+[openid.net/specs/openid-connect-core-1_0.html](https://openid.net/specs/openid-connect-core-1_0.html)
+
 OpenID Connect (OIDC) is an identity layer built on top of the OAuth 2.0 protocol. Simply put, it's a modern way for your application to verify the identity of a user and, optionally, obtain basic profile information about them. Think of it as the digital equivalent of a passport.
 
 The beauty of OIDC lies in its simplicity and flexibility. It allows your users to authenticate with a trusted provider (e.g., Google, Facebook, or your company's identity provider), and then use that authentication to access your app without having to create a new account or remember a separate password. This enhances user experience and security.
 
 OIDC is not just for web apps. It works seamlessly with mobile apps, single-page apps, and even server-side apps. It's a versatile tool in your identity management arsenal.
-
-## OpenID Connect Resources
-
-* [OIDC Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1) (okta.com)
 
 ## OpenID Connect Related
 
@@ -18,18 +16,18 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * Claims
 * Response Types
 
-Tokens
+### Tokens
 
 * Access Tokens
 * ID Tokens
 * Refresh Tokens
 
-Verifying tokens
+### Verifying tokens
 
 * Introspection
-* JWK vertification
+* JWK verification
 
-Flow Types
+### Flow Types
 
 * Authorization Code Flow
 * Implicit Flow
@@ -44,17 +42,17 @@ Flow Types
 
 Minimal
 
-* [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html) (openid.net)
+* [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 
 Dynamic
 
-* [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html) (openid.net)
-* [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html) (openid.net)
+* [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
+* [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html)
 
 Complete
 
-* [OpenID Connect Session Management 1.0](https://openid.net/specs/openid-connect-session-1_0.html) (openid.net)
-* [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html) (openid.net)
+* [OpenID Connect Session Management 1.0](https://openid.net/specs/openid-connect-session-1_0.html)
+* [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html)
 
 ### Protocols underpinning OpenID Connect
 
@@ -69,3 +67,7 @@ Complete
 * [JSON Web Key (JWK)](https://datatracker.ietf.org/doc/html/rfc7517)
 * [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/rfc7518)
 * [WebFinger](https://datatracker.ietf.org/doc/html/rfc7033)
+
+## More learning resources about OpenID Connect
+
+* [OIDC Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1)
