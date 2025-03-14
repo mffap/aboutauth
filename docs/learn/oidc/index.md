@@ -40,17 +40,17 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 
 Minimal
 
-* [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html) (openid.net)
+* [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 
 Dynamic
 
-* [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html) (openid.net)
-* [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html) (openid.net)
+* [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
+* [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html)
 
 Complete
 
-* [OpenID Connect Session Management 1.0](https://openid.net/specs/openid-connect-session-1_0.html) (openid.net)
-* [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html) (openid.net)
+* [OpenID Connect Session Management 1.0](https://openid.net/specs/openid-connect-session-1_0.html)
+* [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html)
 
 ### Protocols underpinning OpenID Connect
 
