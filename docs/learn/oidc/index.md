@@ -1,6 +1,8 @@
 
 # OpenID Connect (OIDC)
 
+[openid.net/specs/openid-connect-core-1_0.html](https://openid.net/specs/openid-connect-core-1_0.html)
+
 OpenID Connect (OIDC) is an identity layer built on top of the OAuth 2.0 protocol. Simply put, it's a modern way for your application to verify the identity of a user and, optionally, obtain basic profile information about them. Think of it as the digital equivalent of a passport.
 
 The beauty of OIDC lies in its simplicity and flexibility. It allows your users to authenticate with a trusted provider (e.g., Google, Facebook, or your company's identity provider), and then use that authentication to access your app without having to create a new account or remember a separate password. This enhances user experience and security.
