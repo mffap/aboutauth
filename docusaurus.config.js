@@ -112,6 +112,11 @@ const config = {
             label: 'Resources', 
             position: 'left'
           },
+          {
+            to: '/top-identity-and-access-management-software', 
+            label: 'Tools', 
+            position: 'left'
+          },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: github_url,

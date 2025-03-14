@@ -18,18 +18,18 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * Claims
 * Response Types
 
-Tokens
+### Tokens
 
 * Access Tokens
 * ID Tokens
 * Refresh Tokens
 
-Verifying tokens
+### Verifying tokens
 
 * Introspection
 * JWK vertification
 
-Flow Types
+### Flow Types
 
 * Authorization Code Flow
 * Implicit Flow
