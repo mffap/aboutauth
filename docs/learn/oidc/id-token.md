@@ -1,6 +1,6 @@
 ---
 # sidebar_position:
-tags: [oidc, jwt]
+tags: [oidc, jwt, authentication]
 ---
 
 # ID Token
