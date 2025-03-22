@@ -197,6 +197,15 @@ const config = {
         darkTheme: prismThemes.dracula,
         additionalLanguages: ['json'],
       },
+      mermaid: {
+        theme: {light: 'base', dark: 'dark'},
+        options: {
+          themeVariables: {
+            primaryColor: '#FFFFFF',
+            primaryBorderColor: '#D36915',
+          }
+        }
+      }
     }),
 };
 
