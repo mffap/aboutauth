@@ -62,6 +62,6 @@ Instead of finding ways to make SAML work with mobile applications and SPA with 
 
 ## SAML resources
 
-* [SAML Explained in Plain English](https://www.onelogin.com/learn/saml]) (onelogin.com)
-* [What is SAML?](https://www.cloudflare.com/learning/access-management/what-is-saml/) (cloudflare.com)
-* [SAML](https://www.pingidentity.com/en/resources/identity-fundamentals/authentication-authorization-standards/saml.html) (pingidentity.com)
+* [SAML Explained in Plain English](https://www.onelogin.com/learn/saml])
+* [What is SAML?](https://www.cloudflare.com/learning/access-management/what-is-saml/)
+* [SAML](https://www.pingidentity.com/en/resources/identity-fundamentals/authentication-authorization-standards/saml.html)
