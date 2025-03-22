@@ -5,7 +5,7 @@ tags: [oidc, authentication, oauth2]
 
 # Authentication Request
 
-[openid.net/specs/openid-connect-core-1_0.html#AuthRequest](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
+[OpenID Connect Core 1.0 incorporating errata set 2 - AuthRequest](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)
 
 A core mechanic of authentication in OpenID Connect (OIDC) is the authentication request (auth request), which is essentially an OAuth 2.0 authorization request with added OIDC-specific parameters. Let's break down what this request entails and its significance.
 
@@ -46,7 +46,7 @@ OpenID specifies the following request parameters for authentication:
 * [OAuth 2 Authorization Request](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1)
 
 [^1]: [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html) and [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html)  
-[^2]: https://openid.net/specs/openid-connect-core-1_0.html#RegistrationParameter  
-[^3]: https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter  
-[^4]: https://openid.net/specs/openid-connect-core-1_0.html#ClaimsLanguagesAndScripts  
-[^5]: https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests
+[^2]: [OpenID Connect Core 1.0 incorporating errata set 2 - RegistrationParameter](https://openid.net/specs/openid-connect-core-1_0.html#RegistrationParameter)
+[^3]: [OpenID Connect Core 1.0 incorporating errata set 2 - ClaimsParameter](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter)  
+[^4]: [OpenID Connect Core 1.0 incorporating errata set 2 - ClaimsLanguagesAndScripts](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsLanguagesAndScripts)  
+[^5]: [OpenID Connect Core 1.0 incorporating errata set 2 - JWTRequests](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)

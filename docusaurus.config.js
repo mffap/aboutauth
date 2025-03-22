@@ -72,6 +72,20 @@ const config = {
             ]
           ]
         },
+        pages: {
+          rehypePlugins: [
+            [
+              rehypeExternalLinks,
+              {
+                target: '_blank',
+                content(node) {
+                  let url = new URL(node.properties.href)
+                  return {type: 'text', value: ` (${url.hostname})` }
+                },
+              }
+            ]
+          ]
+        },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
@@ -94,6 +108,7 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      sidebarCollapsed: false,
       navbar: {
         title: 'AboutAuth',
         logo: {

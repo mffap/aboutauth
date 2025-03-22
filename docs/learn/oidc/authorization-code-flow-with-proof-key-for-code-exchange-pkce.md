@@ -5,7 +5,7 @@ tags: [oidc, authentication]
 
 # Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 
-[openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
+[OpenID Connect Core 1.0 incorporating errata set 2 - CodeFlowAuth](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
 
 OpenID Connect performs authentication to log in the End-User or to determine that the End-User is already logged in.
 OpenID Connect returns the result of the Authentication performed by the Server to the Client in a secure manner so that the Client can rely on it.
@@ -63,6 +63,6 @@ The Authorization Code Flow goes through the following steps.
 
 ## Resources
 
-* [ Proof Key for Code Exchange (RFC 7636) aka. PKCE](https://www.rfc-editor.org/rfc/rfc7636)
+* [Proof Key for Code Exchange (RFC 7636) aka. PKCE](https://www.rfc-editor.org/rfc/rfc7636)
 * [Best Current Practice for OAuth 2.0 Security](https://datatracker.ietf.org/doc/html/rfc9700#name-authorization-code-grant)
 * [Authentication Request Playground](https://zitadel.com/playgrounds/oidc)
