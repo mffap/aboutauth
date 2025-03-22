@@ -29,7 +29,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 
 ### Flow Types
 
-* Authorization Code Flow
+* [Authorization Code Flow](authorization-code-flow-with-proof-key-for-code-exchange-pkce)
 * Implicit Flow
 * Hybrid Flow
 * Device Authorization Flow
