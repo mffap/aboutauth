@@ -139,9 +139,6 @@ const config = {
                 label: 'Resources',
                 to: '/resources',
               },
-              {
-                html: '<a href="#" class="cky-banner-element footer__link-item">Cookie Preferences</a>',
-              },
             ],
           },
           // {
@@ -171,6 +168,13 @@ const config = {
               {
                 label: 'GitHub',
                 href: github_url,
+              },
+              {
+                label: 'Cookie Policy',
+                to: '/cookies',
+              },
+              {
+                html: '<a href="#" class="cky-banner-element footer__link-item">Cookie Settings</a>',
               },
             ],
           },
