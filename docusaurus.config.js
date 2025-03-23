@@ -62,7 +62,8 @@ const config = {
                 target: '_blank',
                 content(node) {
                   let url = new URL(node.properties.href)
-                  return {type: 'text', value: ` (${url.hostname})` }
+                  let hostname = url.hostname.replace(/^(www\.)/,"")
+                  return {type: 'text', value: ` (${hostname})` }
                 },
                 // content: [
                 //   {type: 'text', value: ' ('},
@@ -80,7 +81,8 @@ const config = {
                 target: '_blank',
                 content(node) {
                   let url = new URL(node.properties.href)
-                  return {type: 'text', value: ` (${url.hostname})` }
+                  let hostname = url.hostname.replace(/^(www\.)/,"")
+                  return {type: 'text', value: ` (${hostname})` }
                 },
               }
             ]
