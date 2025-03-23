@@ -4,19 +4,21 @@ description: Resources about Auth
 hide_table_of_contents: false
 ---
 
+# Useful Resources About Auth
+
 ## Awesome Lists
 
 * [kdeldycke/awesome-iam](https://github.com/kdeldycke/awesome-iam)
 * [casbin/awesome-auth](https://github.com/casbin/awesome-auth)
 
-## Useful resources
+## Blogs, Articles, and Knowlege Bases
 
 * [What is identity and access management (IAM)?](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
 * [oauth.net by Aaron Parecki](https://oauth.net/2/)
 * [OpenID Connect Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1)
 * [SAML Explained in Plain English](https://www.onelogin.com/learn/saml])
 
-## Interactive resources
+## Interactive Resources
 
 * [Authentication Request Playground](https://zitadel.com/playgrounds/oidc)
 * [OAuth 2.0 Playground](https://www.oauth.com/playground/)
@@ -31,6 +33,7 @@ hide_table_of_contents: false
 * [Cyber Security Foundations: Identity and Access Management](https://www.futurelearn.com/courses/identity-and-access-management-part-1)
 * [Identity and Access Management (IAM) by Rassoul Zadeh (4.5/5)](https://www.udemy.com/course/identity-and-access-management-iam/)
 * [OpenID Connect & JWT: User identity for your apps & APIs by Matthias Biehl (4.3/5)](https://www.udemy.com/course/openid-connect/)
+* [Identity and Access Management (IAM) by Packt](https://www.coursera.org/learn/packt-identify-andaccess-management-iam-oy5r6)
 
 ## Standards
 
