@@ -130,7 +130,7 @@ const config = {
             position: 'left'
           },
           {
-            to: '/top-identity-and-access-management-software', 
+            to: '/identity-and-access-management-tools', 
             label: 'Tools', 
             position: 'left'
           },
