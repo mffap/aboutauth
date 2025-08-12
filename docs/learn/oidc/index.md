@@ -11,32 +11,25 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 
 ## OpenID Connect Related
 
-* Identity Provider
-* Scopes
-* Claims
-* Response Types
-
-### Tokens
-
-* Access Tokens
-* [ID Tokens](./id-token)
-* Refresh Tokens
-
-### Verifying tokens
-
-* Introspection
-* JWK verification
-
-### Flow Types
-
-* [Authorization Code Flow](authorization-code-flow-with-proof-key-for-code-exchange-pkce)
+* [ID Token](./id-token)
+* [Authentication Request](./authentication-request)
+* Token Request
+* Authorization Code Flow
 * Implicit Flow
 * Hybrid Flow
-* Device Authorization Flow
-* Client Credentials
-* Resource Owner Password
+* [Initiating Login from a Third Party](./initiating-login-from-a-third-party-sso)
+* Standard Claims
+* UserInfo Request
+* Aggregated and Distributed Claims
+* Passing a Request Object by Value
+* Self-Issued OpenID Provider
+* Subject Identifier Types
+* Client Authentication
+* Signature and Encryption
+* Offline Access
+* Refresh Token
 
-## Industry Standard
+## OpenID Connect Standard
 
 ### OpenID Connect Protocol Suite
 
