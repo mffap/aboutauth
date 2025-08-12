@@ -100,6 +100,10 @@ const config = {
         },
         googleTagManager: {
           containerId: "GTM-NBSV4NXP"
+        },
+        sitemap: {
+           ignorePatterns: ['/docs/tags/**', '/blog/**', '/drafts/**'],
+
         }
       }),
     ],
