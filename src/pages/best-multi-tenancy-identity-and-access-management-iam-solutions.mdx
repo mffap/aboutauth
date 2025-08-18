@@ -1,0 +1,102 @@
+# Best Multi-Tenancy Identity & Access Management (IAM) Solutions in 2025
+
+Building a B2B SaaS application on a multi-tenancy architecture requires a robust Identity and Access Management (IAM) solution. This is because a single application instance serves multiple businesses ("tenants"), and it is critical to securely isolate each tenant's data and user base. A well-designed IAM solution for this environment must provide features that address the specific needs of B2B customers, such as enterprise integrations and delegated administration.
+
+## Key Features
+
+The key features a B2B SaaS company should look for in an IAM solution are:
+
+* **Tenant Isolation**: The solution must ensure that each tenant's user data, roles, and permissions are logically separated and inaccessible to other tenants. This is the foundational principle of a secure multi-tenant architecture.
+* **Federated Identity & SSO**: B2B customers, especially larger enterprises, will want their employees to log in using their existing corporate credentials (e.g., Active Directory, Okta, Azure AD). Supporting industry standards like SAML and OIDC for Single Sign-On (SSO) is a must.
+* **Delegated Administration**: A core requirement for B2B is allowing each customer to manage their own users and permissions within their tenant. This reduces the SaaS provider's support burden and gives the customer control.
+* **Customization & Branding**: The sign-in and user management experience should be customizable to match each customer's branding. This includes custom login pages and email templates.
+* **Scalability**: The solution must be able to scale efficiently to support a growing number of tenants and users without a significant increase in management overhead or cost per tenant.
+
+## List of multi-tenancy IAM solutions
+
+Here is a list of IAM solutions for multi-tenancy architectures, with an explanation of why they were selected based on the criteria above.
+
+### 1. Okta Customer Identity Cloud (Auth0)
+
+[Auth0 B2B SaaS](https://auth0.com/b2b-saas)
+
+Okta's Customer Identity Cloud, formerly Auth0, is a powerful choice for B2B SaaS companies due to its developer-first approach and extensive features.
+
+Why Okta was selected:
+
+* **Organizations Feature**: Auth0's core multi-tenancy solution, "Organizations," is designed specifically for B2B use cases. It allows you to model each customer as an organization, providing them with their own isolated user groups, roles, and connections. This addresses the critical need for tenant isolation and delegated administration.
+* **Enterprise Integrations**: Auth0 has a wide range of pre-built integrations with enterprise identity providers (IdPs) like Okta and Azure AD, making it simple to offer SSO to your B2B customers.
+* **Customizable UI**: It provides highly customizable login pages and flows that can be branded for each individual tenant, satisfying the need for branding and a professional customer experience.
+* **Scalability**: The "Organizations" feature allows for a high degree of isolation within a single, shared tenant instance, which is both cost-effective and highly scalable.
+
+![](/img/best-multi-tenancy-iam/auth0.com_b2b-saas.png)
+
+### 2. Keycloak
+
+[Keycloak Configuring Realms](https://www.keycloak.org/docs/latest/server_admin/index.html#_configuring-realms)
+
+Keycloak is an open-source IAM solution that offers a high degree of flexibility and control for multi-tenancy.
+
+Why Keycloak was selected:
+
+* **Realm-based Multi-tenancy**: Keycloak uses "realms" to logically separate tenants. Each realm can have its own users, roles, and configurations, providing strong tenant isolation. While a "polyrealmism" (one realm per tenant) approach can be complex to manage at scale, newer features like the "Organizations" preview are aimed at simplifying multi-tenancy within a single realm.
+* **Open-Source & Self-Hosted**: Being open-source gives companies complete control over their identity stack and data. This is a significant advantage for those with specific compliance, security, or data residency requirements. It eliminates vendor lock-in and offers a no-cost entry point.
+* **Customizability**: Keycloak is highly extensible, allowing developers to create custom authentication flows, themes, and integrations to meet unique business needs. This flexibility is ideal for companies that need to build very specific user experiences.
+
+![](/img/best-multi-tenancy-iam/keycloak.org_configuring-realms.png)
+
+### 3. AWS Cognito
+
+[AWS re:Inforce 2022 - Managing B2B identity at scale: Lessons from AWS and Trend Micro (IAM306)](https://www.youtube.com/watch?v=3fy9uNtMpjM)
+
+AWS Cognito is a managed service that integrates deeply with the AWS ecosystem, making it a strong contender for companies already building on AWS.
+
+Why AWS Cognito was selected:
+
+* **Flexible Multi-tenancy Models**: AWS Cognito offers several multi-tenancy patterns, including using a single user pool with groups, custom attributes, or multiple app clients to represent different tenants. This flexibility allows a business to choose the model that best fits its specific architecture and isolation needs.
+* **Deep AWS Integration**: For SaaS applications that rely heavily on other AWS services (like Lambda for custom business logic or S3 for data storage), Cognito provides seamless integration for authentication and authorization. You can use group membership to control access to specific AWS resources, which is a powerful feature for granular authorization.
+* **Scalability & Cost-Effectiveness**: As a serverless, managed service, Cognito automatically scales to handle millions of users without requiring manual server management. Its cost model is based on monthly active users, which can be very efficient for B2B SaaS companies with varying customer sizes.
+
+![](/img/best-multi-tenancy-iam/aws.amazon.com_cognito.png)
+
+### 4. Zitadel
+
+[Multitenancy support for B2B](https://zitadel.com/usecases#b2b)
+
+Zitadel is an open-source, cloud-native identity and access management platform with a strong focus on multi-tenancy for B2B SaaS. It is built from the ground up to handle a multi-tenant architecture, where each customer is represented as a separate organization within a single instance.
+
+Why Zitadel was selected:
+
+* **Built for B2B Multitenancy:** The platform is designed to handle multiple organizations, allowing each to have its own login policies, branding, and user management.
+* **Self-Service Capabilities:** It enables your customers (the tenant admins) to manage their own users and roles, reducing the burden on your team.
+* **Customization:** You can customize the look and feel of the login pages for each tenant, providing a branded experience.
+
+![](/img/best-multi-tenancy-iam/zitadel.com_usecases.png)
+
+### 5. WorkOS
+
+[Enterprise Single Sign-On](https://workos.com/single-sign-on)
+
+WorkOS is an identity platform for B2B SaaS that provides a developer-friendly API to handle complex enterprise features. It focuses on abstracting away the complexities of integrating with different enterprise identity providers.
+
+Why WorkOS was selected:
+
+* **Enterprise Features:** It provides essential features for B2B SaaS, such as Single Sign-On (SSO) with protocols like SAML and OIDC, and user provisioning via SCIM.
+* **Organizational Modeling:** WorkOS is built with the concept of "Organizations," which represent your business customers. This makes it easy to manage tenants, users, and roles.
+* **Simple Integration:** It unifies different identity providers into a single API, saving you from building custom integrations for each of your customers.
+
+![](/img/best-multi-tenancy-iam/workos.com_single-sign-on.png)
+
+### 6. FusionAuth
+
+[Multi-Organization & User Access Management Software](https://fusionauth.io/platform/organizations)
+
+FusionAuth is a comprehensive, self-hostable, or cloud-based CIAM (Customer Identity and Access Management) platform. It offers a powerful multi-tenant architecture, allowing you to logically separate users, applications, and configurations for each of your customers.
+
+Why FusionAuth was selected
+
+* **Deployment Flexibility:** It can be hosted anywhere—in your own cloud, on-premise, or via their cloud service—providing full control over data sovereignty and compliance.
+* **"Tenants" for Isolation:** FusionAuth uses the concept of "tenants" to provide logical isolation. Each tenant can have unique login screens, password requirements, and user data.
+* **Scalability:** The platform is designed to scale, managing thousands of tenants and millions of users while maintaining performance.
+
+![](/img/best-multi-tenancy-iam/fusionauth.io_platform_organizations.png)
