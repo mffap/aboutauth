@@ -96,7 +96,7 @@ const config = {
             github_url + '/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: './src/css/custom.css'
         },
         googleTagManager: {
           containerId: "GTM-NBSV4NXP"
@@ -114,7 +114,7 @@ const config = {
     
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/aboutauth-social-card.jpg',
       sidebarCollapsed: false,
   
       colorMode: {
