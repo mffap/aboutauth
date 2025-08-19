@@ -2,7 +2,7 @@
 
 [OpenID Connect Core 1.0 incorporating errata set 2 - 4.  Initiating Login from a Third Party](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin)
 
-Initiating Login from a Third Party describes a mechanism where a party other than the relying party (application) or the user can initiate an authentication request.
+Initiating Login from a Third Party describes a mechanism where a party other than the relying party (application) or the user can initiate an [authentication request](authentication-request.md).
 
 Instead of the user directly visiting the RP's site and clicking a login button, a third party (often the OpenID Provider itself) redirects the user to the RP's login initiation endpoint.
 
