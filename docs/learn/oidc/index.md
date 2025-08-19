@@ -14,11 +14,11 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * [ID Token](./id-token)
 * [Authentication Request](./authentication-request)
 * Token Request
-* Authorization Code Flow
+* [Authorization Code Flow](./authorization-code-flow-with-proof-key-for-code-exchange-pkce/)
 * Implicit Flow
 * Hybrid Flow
 * [Initiating Login from a Third Party](./initiating-login-from-a-third-party-sso)
-* Standard Claims
+* [Standard Claims](./standard-claims)
 * UserInfo Request
 * Aggregated and Distributed Claims
 * Passing a Request Object by Value
