@@ -1,0 +1,87 @@
+# Claims in OpenID Connect
+
+[OpenID Connect Core 1.0 incorporating errata set 2 - 5.1 Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims)
+
+## Claims
+
+Claims are at the heart of OpenID Connect, acting as the fundamental pieces of information that describe an End-User. In essence, a Claim is a piece of data about a subject, such as a name, an email address, or a profile picture. When an End-User authenticates with an OpenID Provider (OP), the OP returns these claims to the Relying Party (RP) in a verifiable way, typically within an ID Token or through the UserInfo Endpoint.
+
+## Standard Claims
+
+This section outlines a set of standard, interoperable claims that OpenID Providers are encouraged to support.
+These claims cover common End-User information, such as `name`, `given_name`, `family_name`, `email`, and `phone_number`.
+The standard defines each of these claims and the expected format of their values.
+
+## Address Claim
+
+This is a specific, structured claim that holds the End-User's preferred postal address.
+Instead of a single string, the address claim is a JSON object with several optional sub-claims like `street_address`, `region`, and `country`.
+This structured format allows developers to handle address information in a standardized and predictable way.
+
+## Custom Claims
+
+The set of standard claims is not exhaustive.
+The standard allows for the use of additional claims that are not defined in the specification. 
+These are often referred to as "custom claims."
+The specification requires that all claim names, whether standard or additional, be represented as case-sensitive strings.
+
+## Example of Claims returned as ID Token and UserInfo Response
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="idtoken" label="ID Token">
+    ```json
+    // Encoded ID Token (try jwt.io)
+    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NlcnZlci5leGFtcGxlLmNvbSIsInN1YiI6IjI0ODI4OTc2MTAwMSIsImF1ZCI6InM2QmhkUmtxdDMiLCJub25jZSI6Im4tMFM2X1d6QTJNaiIsImV4cCI6MTMxMTI4MTk3MCwiaWF0IjoxMzExMjgwOTcwLCJhdXRoX3RpbWUiOjEzMTEyODA5NjksImFjciI6InVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiLCJuYW1lIjoiSmFuZSBEb2UiLCJnaXZlbl9uYW1lIjoiSmFuZSIsImZhbWlseV9uYW1lIjoiRG9lIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiai5kb2UiLCJlbWFpbCI6ImphbmVkb2VAZXhhbXBsZS5jb20iLCJwaWN0dXJlIjoiaHR0cDovL2V4YW1wbGUuY29tL2phbmVkb2UvbWUuanBnIiwiYWRkcmVzcyI6eyJmb3JtYXR0ZWQiOiJDYWxpZm9ybmlhLCBVbml0ZWQgU3RhdGVzIiwicmVnaW9uIjoiQ2FsaWZvcm5pYSIsImNvdW50cnkiOiJVbml0ZWQgU3RhdGVzIn19.tJMQNnsyYufRfIfzHQq6yWKWC_D6KEBi-8Vpiba3hRI
+    
+    // Decoded ID Token
+    {
+    "iss": "https://server.example.com",
+    //highlight-next-line
+    "sub": "248289761001",
+    "aud": "s6BhdRkqt3",
+    "nonce": "n-0S6_WzA2Mj",
+    "exp": 1311281970,
+    "iat": 1311280970,
+    "auth_time": 1311280969,
+    "acr": "urn:mace:incommon:iap:silver",
+    //highlight-start
+    "name": "Jane Doe",
+    "given_name": "Jane",
+    "family_name": "Doe",
+    "preferred_username": "j.doe",
+    "email": "janedoe@example.com",
+    "picture": "http://example.com/janedoe/me.jpg",
+    "address": {
+      "formatted": "California, United States",
+      "region": "California",
+      "country": "United States"
+    }
+    //highlight-end
+    }
+    ```
+  </TabItem>
+  <TabItem value="userinfo" label="UserInfo Response">
+    ```json
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+    "sub": "248289761001",
+    "name": "Jane Doe",
+    "given_name": "Jane",
+    "family_name": "Doe",
+    "preferred_username": "j.doe",
+    "email": "janedoe@example.com",
+    "picture": "http://example.com/janedoe/me.jpg"
+    "address": {
+      "formatted": "California, United States",
+      "region": "California",
+      "country": "United States"
+    }
+    }
+    ```
+  </TabItem>
+</Tabs>
