@@ -4,7 +4,7 @@
 
 ## Claims
 
-Claims are at the heart of OpenID Connect, acting as the fundamental pieces of information that describe an End-User. In essence, a Claim is a piece of data about a subject, such as a name, an email address, or a profile picture. When an End-User authenticates with an OpenID Provider (OP), the OP returns these claims to the Relying Party (RP) in a verifiable way, typically within an ID Token or through the UserInfo Endpoint.
+Claims are at the heart of OpenID Connect, acting as the fundamental pieces of information that describe an End-User. In essence, a Claim is a piece of data about a subject, such as a name, an email address, or a profile picture. When an End-User authenticates with an OpenID Provider (OP), the OP returns these claims to the Relying Party (RP) in a verifiable way, typically within an [ID Token](id-token.md) or through the UserInfo Endpoint.
 
 ## Standard Claims
 
@@ -21,7 +21,7 @@ This structured format allows developers to handle address information in a stan
 ## Custom Claims
 
 The set of standard claims is not exhaustive.
-The standard allows for the use of additional claims that are not defined in the specification. 
+The standard allows for the use of additional claims that are not defined in the specification.
 These are often referred to as "custom claims."
 The specification requires that all claim names, whether standard or additional, be represented as case-sensitive strings.
 
@@ -32,7 +32,10 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="idtoken" label="ID Token">
-    ```json
+
+    Claims can be contained in the [ID Token](id-token.md) returned during user authentication.
+
+    ```json title="Encoded and Decoded IT Token with Claims"
     // Encoded ID Token (try jwt.io)
     // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NlcnZlci5leGFtcGxlLmNvbSIsInN1YiI6IjI0ODI4OTc2MTAwMSIsImF1ZCI6InM2QmhkUmtxdDMiLCJub25jZSI6Im4tMFM2X1d6QTJNaiIsImV4cCI6MTMxMTI4MTk3MCwiaWF0IjoxMzExMjgwOTcwLCJhdXRoX3RpbWUiOjEzMTEyODA5NjksImFjciI6InVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiLCJuYW1lIjoiSmFuZSBEb2UiLCJnaXZlbl9uYW1lIjoiSmFuZSIsImZhbWlseV9uYW1lIjoiRG9lIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiai5kb2UiLCJlbWFpbCI6ImphbmVkb2VAZXhhbXBsZS5jb20iLCJwaWN0dXJlIjoiaHR0cDovL2V4YW1wbGUuY29tL2phbmVkb2UvbWUuanBnIiwiYWRkcmVzcyI6eyJmb3JtYXR0ZWQiOiJDYWxpZm9ybmlhLCBVbml0ZWQgU3RhdGVzIiwicmVnaW9uIjoiQ2FsaWZvcm5pYSIsImNvdW50cnkiOiJVbml0ZWQgU3RhdGVzIn19.tJMQNnsyYufRfIfzHQq6yWKWC_D6KEBi-8Vpiba3hRI
     
@@ -64,7 +67,10 @@ import TabItem from '@theme/TabItem';
     ```
   </TabItem>
   <TabItem value="userinfo" label="UserInfo Response">
-    ```json
+
+    Claims can be returned in the UserInfo Response.
+
+    ```json title="UserInfo Response with Claims"
     HTTP/1.1 200 OK
     Content-Type: application/json
 
@@ -75,7 +81,7 @@ import TabItem from '@theme/TabItem';
     "family_name": "Doe",
     "preferred_username": "j.doe",
     "email": "janedoe@example.com",
-    "picture": "http://example.com/janedoe/me.jpg"
+    "picture": "http://example.com/janedoe/me.jpg",
     "address": {
       "formatted": "California, United States",
       "region": "California",
