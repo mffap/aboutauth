@@ -62,13 +62,14 @@ The OpenID Connect protocol defines interactions among three primary roles to fa
 ### The Authentication Flow With OpenID Connect
 
 ```mermaid
-flowchart
-
-    User
-    App
-    op[OpenID Provider]
-    rp[Relying Party]
-    api[Private API]
+flowchart LR
+  subgraph Auth Flow
+    rp[Relying Party] -- redirects -->op[OpenID Provider]
+    op -- user login --> op
+    op -- id_token, access_token --> rp
+    end
+    rp -- access_token --> api[Protected API]
+    api --> rp
 ```
 
 The OpenID Connect authentication flow involves a **Relying Party (RP)**, which is the application the user wants to log into, and an **OpenID Provider (OP)**, which handles the user's identity.
@@ -134,6 +135,8 @@ OpenID Connect leverages distinct token types, each serving a specific purpose w
 
 ### ID Token (`id_token`)
 
+[OpenID Connect Core 1.0 incorporating errata set 2 - ID Token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
+
 The [ID Token](id-token.md), the core of OpenID Connect, verifies user identity to the Relying Party.  
 It's a JSON Web Token (JWT), a compact, URL-safe, digitally signed representation of claims. The ID Token's payload contains standard claims about the authenticated user and the token. Key claims include:
 
@@ -151,6 +154,8 @@ The ID Token confirms user authentication with the OpenID Provider. It's for aut
 
 ### Access Token (`access_token`)
 
+[The OAuth 2.0 Authorization Framework - 1.4 Access Token](https://datatracker.ietf.org/doc/html/rfc6749#section-1.4)
+
 The Access Token, primarily a component of OAuth 2.0, is used in conjunction with OIDC for authorization. Its purpose is to grant delegated access to protected resources or APIs on behalf of the user.
 
 While the Access Token is often an opaque string to the client, it is typically a JWT when intended for an API. Unlike the ID Token, the Access Token does not contain identifiable user information directly. Instead, it serves as a credential that the client presents to a resource server (API) to prove it has been authorized to access specific resources or perform certain actions.
@@ -158,6 +163,8 @@ While the Access Token is often an opaque string to the client, it is typically 
 Access tokens are generally designed to be short-lived, typically expiring within minutes to a few hours. This short lifespan is a security best practice, limiting the potential impact if a token is compromised.
 
 ### Refresh Token (`refresh_token`)
+
+[The OAuth 2.0 Authorization Framework - 1.5 Refresh Token](https://datatracker.ietf.org/doc/html/rfc6749#section-1.5)
 
 Refresh Tokens are long-lived credentials used to obtain new Access Tokens and/or ID Tokens without requiring the user to re-authenticate.
 They are particularly valuable for maintaining user sessions and improving user experience by avoiding frequent re-logins.
@@ -237,10 +244,10 @@ Proper validation of tokens is a non-negotiable security measure for Relying Par
 The ID Token provides proof of the authentication event and contains information about how and when the user authenticated.26
 
 * **Standard JWT Validation:** Perform all standard JSON Web Token (JWT) validation steps, including checking the token's header, payload, and signature.  
-  * **Verify Issuer (iss):** Confirm that the iss claim matches the expected OpenID Provider's HTTPS URL. Only trust tokens from known issuers.  
-  * **Verify Audience (aud):** Ensure the aud claim (audience) contains the Relying Party's client ID, indicating the token was intended for this specific application  
-  * **Verify Signature:** Validate the token's signature using the OpenID Provider's public key, typically retrieved from its JSON Web Key Set (JWKS) endpoint. Verify that the alg (algorithm) claim matches an expected and strong algorithm (e.g., RS256) and that no "none" algorithm is used.  
-  * **Validate Standard Claims:** Check other critical claims such as exp (expiration time), iat (issued at time), auth\_time (authentication time), and nonce (if a nonce parameter was included in the original authentication request).
+* **Verify Issuer (iss):** Confirm that the iss claim matches the expected OpenID Provider's HTTPS URL. Only trust tokens from known issuers.  
+* **Verify Audience (aud):** Ensure the aud claim (audience) contains the Relying Party's client ID, indicating the token was intended for this specific application  
+* **Verify Signature:** Validate the token's signature using the OpenID Provider's public key, typically retrieved from its JSON Web Key Set (JWKS) endpoint. Verify that the alg (algorithm) claim matches an expected and strong algorithm (e.g., RS256) and that no "none" algorithm is used.  
+* **Validate Standard Claims:** Check other critical claims such as exp (expiration time), iat (issued at time), auth\_time (authentication time), and nonce (if a nonce parameter was included in the original authentication request).
 
 The ID Token is solely for authentication. It should **never** be used to authorize access to APIs or protected resources. That is the role of the Access Token
 
@@ -249,8 +256,8 @@ The ID Token is solely for authentication. It should **never** be used to author
 Best Practices  Access tokens are intended for APIs and should be validated by the API (resource server) they are meant to access.
 
 * **Standard JWT Validation:** If the access token is a JWT, perform standard JWT validation steps.  
-  * **Verify Audience (aud):** The aud claim in the access token's payload must match the unique identifier of the target API for which the token was issued.  
-  * **Verify Permissions (scope):** Check the scope claim in the decoded JWT payload to ensure the application has been granted the necessary permissions to access the requested API endpoint. If the required scope is missing, the request should be rejected.
+* **Verify Audience (aud):** The aud claim in the access token's payload must match the unique identifier of the target API for which the token was issued.  
+* **Verify Permissions (scope):** Check the scope claim in the decoded JWT payload to ensure the application has been granted the necessary permissions to access the requested API endpoint. If the required scope is missing, the request should be rejected.
 
 ### Secure Token Storage Recommendations
 
