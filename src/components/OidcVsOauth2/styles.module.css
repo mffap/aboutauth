@@ -1,0 +1,20 @@
+.cardContainer {
+  display: flex; /* Enables Flexbox layout */
+  justify-content: center; /* Centers the cards horizontally */
+  gap: 20px; /* Adds space between the cards */
+  margin-bottom: 2rem; /* Adds space below the container */
+}
+
+.card {
+    flex-basis: 45%; /* Each card takes up 45% of the container's width */
+    border: 1px solid var(--ifm-color-primary);
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 0.25rem 2rem;
+    text-align: center;
+}
+
+.icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+}

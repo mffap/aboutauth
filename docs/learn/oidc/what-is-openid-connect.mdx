@@ -4,6 +4,8 @@ sidebar_label: What is OIDC?
 tags: [oidc]
 ---
 
+import OidcVsOauth2 from '@site/src/components/OidcVsOauth2'
+
 # OpenID Connect for Developers
 
 Modern digital applications demand secure, and user authentication without friction.
@@ -31,6 +33,8 @@ This combination provides both identity verification and controlled resource acc
 
 ### Key Distinction: Authentication (OIDC) vs. Authorization (OAuth 2.0)
 
+<OidcVsOauth2 />
+
 To fully understand OpenId Connect, it is essential to differentiate between authentication and authorization:
 
 **Authentication:** This is the secure process of confirming a user's identity, answering the fundamental question, "Who are you?" It typically involves a user providing credentials, such as a username and password, which are then verified by an identity provider. OIDC is specifically designed to handle the authentication aspect of identity management.
@@ -55,9 +59,17 @@ The OpenID Connect protocol defines interactions among three primary roles to fa
 * **Relying Party (RP):** This is the application or website that needs to verify the user's identity. It relies on an OpenID Provider to perform the authentication process. In OAuth terminology, this is the "client application.”  
 * **OpenID Provider (OP):** This is a trusted service responsible for authenticating the end user and issuing identity information (ID Tokens) to the Relying Party. Prominent technology providers are Google, Microsoft, Keycloak, Zitadel, or Okta which function as OpenID Providers.
 
-### **The Authentication Flow (High-Level Steps)**
+### The Authentication Flow With OpenID Connect
 
-\[Graphic: Flow Chart\]
+```mermaid
+flowchart
+
+    User
+    App
+    op[OpenID Provider]
+    rp[Relying Party]
+    api[Private API]
+```
 
 The OpenID Connect authentication flow involves a **Relying Party (RP)**, which is the application the user wants to log into, and an **OpenID Provider (OP)**, which handles the user's identity.
 
@@ -86,7 +98,7 @@ OpenID Connect defines various "flows" or sequences of interactions that applica
 
 ### Authorization Code Flow with proof Key for Code Exchange (Recommended)
 
-[Authorization Code Flow with PKCE](authorization-code-flow-with-pkce.md) is recommended for most applications.
+[Authorization Code Flow with PKCE](authorization-code-flow-with-proof-key-for-code-exchange-pkce.md) is recommended for most applications.
 
 This secure, flexible, and recommended flow suits modern applications. It's ideal for server-side web apps and, with PKCE, for SPAs and native mobile apps. The OpenID Provider sends a one-time authorization code to the Relying Party's backend (for confidential clients). The backend securely exchanges this code for ID, Access, and Refresh tokens via a direct, server-to-server communication, hidden from the user's browser.
 
