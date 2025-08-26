@@ -37,8 +37,6 @@ To fully understand OpenId Connect, it is essential to differentiate between aut
 
 **Authorization:** This process determines what an authenticated user is permitted to do, or what specific resources an application can access on behalf of that user, addressing the question, "What are you allowed to do?" OAuth 2.0 is the standard protocol tailored for Authorization processes, enabling secure delegated access to resources without exposing the user's primary credentials.
 
-\[Graphic: Authentication vs. Authorization\]
-
 OpenID Connect builds on OAuth 2.0, adding an identity layer to its authorization framework.
 OIDC extends, not replaces, OAuth 2.0, providing comprehensive authentication.
 They work together for identity and access management.
