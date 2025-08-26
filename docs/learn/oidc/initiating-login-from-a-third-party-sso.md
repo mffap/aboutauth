@@ -1,3 +1,8 @@
+---
+sidebar_position: 8
+tags: [oidc, sso]
+---
+
 # Initiating Login from a Third Party
 
 [OpenID Connect Core 1.0 incorporating errata set 2 - 4.  Initiating Login from a Third Party](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin)
