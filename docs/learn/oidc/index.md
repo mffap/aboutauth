@@ -11,6 +11,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 
 ## OpenID Connect Related
 
+* [OpenID Connect for Developers](what-is-openid-connect.mdx)
 * [ID Token](./id-token)
 * [Authentication Request](./authentication-request)
 * Token Request
@@ -33,16 +34,16 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 
 ### OpenID Connect Protocol Suite
 
-Minimal
+#### OIDC Minimal
 
 * [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 
-Dynamic
+#### OIDC Dynamic
 
 * [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
 * [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html)
 
-Complete
+#### OIDC Complete
 
 * [OpenID Connect Session Management 1.0](https://openid.net/specs/openid-connect-session-1_0.html)
 * [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html)
