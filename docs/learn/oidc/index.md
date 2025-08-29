@@ -30,25 +30,35 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * Offline Access
 * Refresh Token
 
-## OpenID Connect Standard
+## OpenID Connect Standard Protocol Suite
 
-### OpenID Connect Protocol Suite
+### OIDC Minimal
 
-#### OIDC Minimal
+**[OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)**
 
-* [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
+The foundational specification. It defines the main OIDC functionalities, including [authentication flows](authorization-code-flow-with-proof-key-for-code-exchange-pkce.md), the [ID Token](id-token.md), and the UserInfo endpoint, all built on top of OAuth 2.0.
 
-#### OIDC Dynamic
+### OIDC Dynamic
 
-* [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
-* [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html)
+**[OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)**
 
-#### OIDC Complete
+Enables clients to dynamically discover the configuration of an OpenID Provider, such as its endpoints and capabilities, by fetching a JSON document from a well-known URL. This simplifies client setup.
 
-* [OpenID Connect Session Management 1.0](https://openid.net/specs/openid-connect-session-1_0.html)
-* [OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html)
+**[OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html)**
 
-### Protocols underpinning OpenID Connect
+Allows client applications to register with an OpenID Provider on-the-fly, rather than requiring manual pre-configuration. The client receives a `client_id` and other necessary metadata to interact with the provider.
+
+### OIDC Complete
+
+**[OpenID Connect Session Management 1.0](https://openid.net/specs/openid-connect-session-1_0.html)**
+
+Defines how to manage the end-user's session at the OpenID Provider, including mechanisms for single sign-out (logging out from both the application and the provider).
+
+**[OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html)**
+
+Specifies a secure method for the Authorization Server to return parameters (like authorization codes or tokens) to the client by sending them in the body of an HTTP POST request, avoiding exposure in browser history or server logs.
+
+## Protocols underpinning OpenID Connect
 
 * [The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
 * [Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)
@@ -66,3 +76,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 ## More learning resources about OpenID Connect
 
 * [OIDC Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1)
+
+:::info
+More resource about auth on our [Resources](/resources) page.
+:::
