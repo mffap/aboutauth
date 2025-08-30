@@ -1,0 +1,9 @@
+.providerSection {
+    margin-bottom: 2rem;
+}
+
+.linkBar {
+    padding-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}
