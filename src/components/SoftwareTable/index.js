@@ -31,7 +31,8 @@ function SoftwareProvider({ provider }) {
     <section className={styles.providerSection}>
       <h4>{provider.title}</h4>
       <div>{provider.description}</div>
-      <div>
+      <div  className={styles.linkBar}>
+        <Link href={provider.link}>{provider.title}</Link>
         <Link href={provider.link}>{provider.title}</Link>
       </div>
     </section>
