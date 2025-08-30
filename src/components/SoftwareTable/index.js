@@ -1,6 +1,7 @@
 import Link from "@docusaurus/Link";
 import SoftwareProviders from "./software";
 import styles from './styles.module.css';
+import { FaGlobe, FaGithub} from "react-icons/fa6";
 
 import React from "react";
 
@@ -32,8 +33,8 @@ function SoftwareProvider({ provider }) {
       <h4>{provider.title}</h4>
       <div>{provider.description}</div>
       <div  className={styles.linkBar}>
-        <Link href={provider.link}>{provider.title}</Link>
-        <Link href={provider.link}>{provider.title}</Link>
+        <Link href={provider.website} target="_blank" rel="nofollow"><FaGlobe /></Link>
+      { provider.github && <Link href={provider.github} target="_blank" rel="nofollow"><FaGithub /></Link>}
       </div>
     </section>
   );
