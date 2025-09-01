@@ -45,6 +45,21 @@ ID Tokens are signed using [JWS](https://datatracker.ietf.org/doc/html/rfc7515) 
 }
 ```
 
+## ID Token vs. Access Token
+
+While both are tokens, they serve distinct purposes in the OAuth 2.0 and OIDC ecosystem.
+
+| Feature        | ID Token                                       | Access Token                                 |
+| :------------- | :--------------------------------------------- | :------------------------------------------- |
+| **Purpose**    | Authentication (Who is the user?)              | Authorization (What can the user do?)        |
+| **Audience**   | Client Application                             | Resource Server (API)                        |
+| **Format**     | Always a JWT                                   | Can be any format (often opaque)             |
+| **Content**    | User identity claims (`sub`, `name`, `email`)  | Permissions, scopes, user ID                 |
+| **Client Use** | Validate signature, read claims for user info. | Treat as opaque, send to API in `Authorization` header. |
+
+**ID Tokens are a proof of authentication for the Client, while Access Tokens are for accessing the API**. The client application is the intended audience of an ID Token to get more information about who authenticated. During an OIDC flow, the client also receives an Access Token and uses the Access Token to make requests to a protected resource server (API). The client should not attempt to inspect the Access Token.
+**Don't send ID Tokens to an API**. APIs should be protected using Access Tokens. Sending an ID Token to an API as a bearer token is a common mistake. The API should require an Access Token and validate its scope and permissions.
+
 ## Resources
 
 * [JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519)
