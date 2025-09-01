@@ -57,8 +57,16 @@ While both are tokens, they serve distinct purposes in the OAuth 2.0 and OIDC ec
 | **Content**    | User identity claims (`sub`, `name`, `email`)  | Permissions, scopes, user ID                 |
 | **Client Use** | Validate signature, read claims for user info. | Treat as opaque, send to API in `Authorization` header. |
 
-**ID Tokens are a proof of authentication for the Client, while Access Tokens are for accessing the API**. The client application is the intended audience of an ID Token to get more information about who authenticated. During an OIDC flow, the client also receives an Access Token and uses the Access Token to make requests to a protected resource server (API). The client should not attempt to inspect the Access Token.
+## How to use ID Tokens
+
+**ID Tokens are a proof of authentication for the Client, while Access Tokens are for accessing a Resource Server (eg, API)**.
+The client application is the intended audience of an ID Token to get more information about who authenticated.
+During an OIDC flow, the client also receives an Access Token and uses the Access Token to make requests to a protected resource server (API).
+The client should not attempt to inspect the Access Token.
 **Don't send ID Tokens to an API**. APIs should be protected using Access Tokens. Sending an ID Token to an API as a bearer token is a common mistake. The API should require an Access Token and validate its scope and permissions.
+**The ID Token can also serve as protection against denial of service attacks during logout**.
+The client should send the ID Token in the`id_token_hint` to the `end_session_endpoint` when [initiating a logout](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#RPLogout).
+
 
 ## Resources
 
@@ -69,3 +77,4 @@ While both are tokens, they serve distinct purposes in the OAuth 2.0 and OIDC ec
 * [Level of Assurance (LoA) Profiles](https://www.iana.org/assignments/loa-profiles/loa-profiles.xhtml)
 * [An IANA Registry for Level of Assurance (LoA) Profiles [RFC6711]](https://www.rfc-editor.org/rfc/rfc6711.txt)
 * [Identity Assurance Qualifiers (was LOA)--A Recommended URI Profile for InCommon](https://spaces.at.internet2.edu/display/macedir/Identity+Assurance+Qualifiers+%28was+LOA%29--A+Recommended+URI+Profile+for+InCommon)
+* [OpenID Connect RP-Initiated Logout 1.0](https://openid.net/specs/openid-connect-rpinitiated-1_0.html)
