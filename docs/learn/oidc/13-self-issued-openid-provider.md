@@ -2,9 +2,9 @@
 tags: [oidc]
 ---
 
-[OpenID Connect Core 1.0 incorporating errata set 2 - Self-Issued OpenID Provider](https://openid.net/specs/openid-connect-core-1_0.html#SelfIssued)
-
 # Self-issued OpenID Provider (SIOP)
+
+[OpenID Connect Core 1.0 incorporating errata set 2 - Self-Issued OpenID Provider](https://openid.net/specs/openid-connect-core-1_0.html#SelfIssued)
 
 A Self-Issued OpenID Provider (SIOP) is a personal, self-hosted OpenID Provider that allows a user to become the issuer of their own identity information. Instead of relying on a third-party server, the user's keys are used to sign their own ID Tokens and present self-attested claims directly to a Relying Party. This changes the trust model, as the Relying Party's trust is directly with the end-user rather than an institutional identity provider. This framework enables decentralized identity concepts by allowing users to control their own verifiable credentials.
 

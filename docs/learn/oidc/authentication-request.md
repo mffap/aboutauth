@@ -18,7 +18,7 @@ This redirection carries the authentication request as query parameters in the U
 
 OpenID Connect uses the following mandatory OAuth 2.0 request parameters with the Authorization Code Flow:
 
-* `scope`: (required) This parameter defines the permissions your application requests. For OIDC, it must include *openid*, which signals that an ID token should be returned. Additionally, it can include other scopes like *profile*, *email*, or *phone* to request user information. When requesting the special scope *offline_access* a refresh token will be issued.
+* `scope`: (required) This parameter defines the permissions your application requests as [scopes](standard-openid-connect-scopes.md). For OIDC, it must include *openid*, which signals that an ID token should be returned. Additionally, it can include [other scopes](standard-openid-connect-scopes.md) like *profile*, *email*, or *phone* to request user information. When requesting the special scope [offline_access](17-offline-access.md) a refresh token will be issued.
 * `response_type`: (required) This crucial parameter specifies the desired authorization flow and the type of token to be returned. For OIDC, it typically includes *code* for the authorization code flow, or *id_token* (and optionally *token*) for the implicit flow or hybrid flow.
 * `client_id`: (required) This identifies your client application to the OIDC provider, ensuring that the provider knows which application is requesting authentication.
 * `redirect_uri`: (required) This indicates the URL where the OIDC provider should redirect the user after authentication, along with the authorization code or tokens. It's a critical security measure, as the provider will only redirect to pre-registered URIs.
