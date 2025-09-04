@@ -23,7 +23,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * UserInfo Request
 * Aggregated and Distributed Claims
 * Passing a Request Object by Value
-* [Self-Issued OpenID Provider](self-issued-openid-provider.md)
+* [Self-Issued OpenID Provider](13-self-issued-openid-provider.md)
 * Subject Identifier Types
 * Client Authentication
 * Signature and Encryption
