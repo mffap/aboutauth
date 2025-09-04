@@ -60,6 +60,7 @@ Specifies a secure method for the Authorization Server to return parameters (lik
 
 ### Other OpenId Connect Specifications
 
+* [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html)
 * <span> Implementer's Draft</span> [Self-Issued OpenID Provider v2 - draft 13](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html)
 
 ## Protocols underpinning OpenID Connect
