@@ -23,7 +23,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * UserInfo Request
 * Aggregated and Distributed Claims
 * Passing a Request Object by Value
-* Self-Issued OpenID Provider
+* [Self-Issued OpenID Provider](self-issued-openid-provider.md)
 * Subject Identifier Types
 * Client Authentication
 * Signature and Encryption
@@ -57,6 +57,10 @@ Defines how to manage the end-user's session at the OpenID Provider, including m
 **[OAuth 2.0 Form Post Response Mode](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html)**
 
 Specifies a secure method for the Authorization Server to return parameters (like authorization codes or tokens) to the client by sending them in the body of an HTTP POST request, avoiding exposure in browser history or server logs.
+
+### Other OpenId Connect Specifications
+
+* <span> Implementer's Draft</span> [Self-Issued OpenID Provider v2 - draft 13](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html)
 
 ## Protocols underpinning OpenID Connect
 
