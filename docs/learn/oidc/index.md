@@ -19,6 +19,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * Implicit Flow
 * Hybrid Flow
 * [Initiating Login from a Third Party](./initiating-login-from-a-third-party-sso)
+* [Scopes in OpenID Connect](standard-openid-connect-scopes.md)
 * [Standard Claims](./standard-claims)
 * UserInfo Request
 * Aggregated and Distributed Claims
@@ -27,7 +28,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * Subject Identifier Types
 * Client Authentication
 * Signature and Encryption
-* Offline Access
+* [Offline Access](17-offline-access.md)
 * Refresh Token
 
 ## OpenID Connect Standard Protocol Suite
