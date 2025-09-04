@@ -26,7 +26,7 @@ const FeatureList = [
   },
   {
     title: 'Tools for Auth',
-    link: '/top-identity-and-access-management-software',
+    link: '/identity-and-access-management-tools',
     Svg: require('@site/static/img/noun-tools.svg').default,
     description: (
       <>
