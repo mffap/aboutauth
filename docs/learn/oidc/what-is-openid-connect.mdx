@@ -237,6 +237,16 @@ For developers building Relying Parties, adhering to best practices is paramount
 * **Unique Account Mapping:** An RP should generally create only one site account per OpenID identifier, unless the application explicitly provides a mechanism for users to manually select which account to use if multiple are linked to the same OpenID  
 * **Treat Extensions as Optional:** If the RP utilizes OIDC extensions (e.g., Simple Registration Extension), it should gracefully handle situations where the OpenID Provider does not support the extension. This might involve presenting a form for manual input or computing sensible defaults, ensuring a consistent user experience
 
+### UserInfo Response Validation
+
+The OIDC Standards mention [Token Substitution](https://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution) as a class of attacks in which a malicious user swaps an Authorization Code intended for a legitimate user with the attacker's token.
+The attacker can simply "cut and paste" the token, that is available in the browser, from on session in a http message for a different session.
+
+Because of Token Substitution attacks, UserInfo Response can have a different `sub` (subject) element than the `sub` that was issued during authentication to the [ID Token](id-token.md).
+The `sub` claim in the UserInfo Response must be verified to exactly match the sub claim in the ID Token.
+
+This means that the client must store the ID Token's `sub` claim and associate it to the user's session.
+
 ### ID Token Validation Best Practices
 
 Proper validation of tokens is a non-negotiable security measure for Relying Parties.

@@ -63,10 +63,13 @@ While both are tokens, they serve distinct purposes in the OAuth 2.0 and OIDC ec
 The client application is the intended audience of an ID Token to get more information about who authenticated.
 During an OIDC flow, the client also receives an Access Token and uses the Access Token to make requests to a protected resource server (API).
 The client should not attempt to inspect the Access Token.
+
+The information provided in the ID Token is crucial to prevent a class of attacks called [Token Substitution](https://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution), where an attacker "copy and paste" the attacker's token into a http message from another user. **Clients must retain the `sub`, `c_hash`, and `at_hash` that were issued during authentication in the ID Token** to validate responses from the Authorization Server (eg, UserInfo Response).
+
 **Don't send ID Tokens to an API**. APIs should be protected using Access Tokens. Sending an ID Token to an API as a bearer token is a common mistake. The API should require an Access Token and validate its scope and permissions.
+
 **The ID Token can also serve as protection against denial of service attacks during logout**.
 The client should send the ID Token in the`id_token_hint` to the `end_session_endpoint` when [initiating a logout](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#RPLogout).
-
 
 ## Resources
 
