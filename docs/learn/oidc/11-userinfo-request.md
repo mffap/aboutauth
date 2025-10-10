@@ -4,11 +4,11 @@ tags: [oidc]
 
 # OpenID UserInfo Request
 
-The UserInfo Endpoint is a protected resource hosted by the OpenID Provider (OP). Its purpose is to return [claims](standard-claims.md) about the authenticated user, such as their name, email address, or profile picture.
+The UserInfo Endpoint is a protected resource hosted by the OpenID Provider (OP). Its purpose is to return [claims](standard-claims.mdx) about the authenticated user, such as their name, email address, or profile picture.
 
 While some claims can be included directly in the ID Token, fetching them from the UserInfo Endpoint has a few advantages:
 
-* It keeps the [ID Token](id-token.md)) small and focused on the authentication event itself.
+* It keeps the [ID Token](id-token.md) small and focused on the authentication event itself.
 * It provides a standardized way to retrieve user information that might be updated after the initial login.
 
 A UserInfo Request is a simple, authenticated API call made by your application (the Relying Party) to the UserInfo Endpoint.
