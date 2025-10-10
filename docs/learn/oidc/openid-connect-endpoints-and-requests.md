@@ -4,18 +4,18 @@ tags: [oidc]
 
 # Important OpenID Connect Endpoints and Their Requests
 
-Category | Endpoint | URL
---- | --- | ---
-Authentication | [Authorization](#authorization-endpoint) | /authorize
-Authentication | [Token](#token-endpoint) | /token
-Profile | [UserInfo](#userinfo-endpoint) | /userinfo
-Validation | [Keys](#keys-endpoint) | /.well-known/jwks.json <br /> (non-normative)
-Validation | [Introspection](#introspection-endpoint) | /introspect
-Validation | [Check Session Iframe](#check-session-iframe-endpoint) | /check_session <br />  (non-normative)
-Termination | [Revocation](#revocation-endpoint) | /revoke
-Termination | [End Session](#end-session-endpoint) | /end_session <br />  (non-normative)
-Configuration | [Discovery](#discovery-endpoint) | /.well-known/openid-configuration
-Configuration | [Dynamic Client Registration](#dynamic-client-registration-endpoint) | /register
+Category | Endpoint | Request | Description
+--- | --- | --- | ---
+Authentication | [Authorization](#authorization-endpoint) | (Redirect) `/authorize` | Starting the authentication flow
+Authentication | [Token](#token-endpoint) | (POST) `/token` | Retieving access, refresh, and ID tokens
+Profile | [UserInfo](#userinfo-endpoint) | (GET, POST) `/userinfo` | Retrieving user information (claims)
+Validation | [Keys](#keys-endpoint) | (GET) `/.well-known/jwks.json`[^1] | Retrieving public keys used for validating tokens
+Validation | [Introspection](#introspection-endpoint) | `/introspect` | Validating (opaque) tokens
+Validation | [Check Session Iframe](#check-session-iframe-endpoint) | `/check_session`[^1]| Validating user session
+Termination | [Revocation](#revocation-endpoint) | `/revoke` | Revoking tokens
+Termination | [End Session](#end-session-endpoint) | `/end_session`[^1] | End user session
+Configuration | [Discovery](#discovery-endpoint) | `/.well-known/openid-configuration` | Retrieving IDP endpoints and capabilities
+Configuration | [Dynamic Client Registration](#dynamic-client-registration-endpoint) | `/register` | Register client application
 
 ## Authorization Endpoint
 
@@ -116,3 +116,5 @@ https://openid.net/specs/openid-connect-session-1_0.html
 https://idp.aboutauth.com/check_session
 
 Redirect, Parameters
+
+[^1]: non-normative: the standards don't define the endpoint's url or name, but this naming convention is used among the major providers.
