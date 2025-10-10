@@ -7,21 +7,24 @@ tags: [oidc]
 Category | Endpoint | URL
 --- | --- | ---
 Authentication | [Authorization](#authorization-endpoint) | /authorize
-Authentication | Token | /token
-Profile | UserInfo | /userinfo
-Validation | Keys | /.well-known/jwks.json <br /> (non-normative)
-Validation | Introspection | /introspect
-Validation | Check Session Iframe | /check_session <br />  (non-normative)
-Termination | Revocation | /revoke
-Termination | End Session | /end_session <br />  (non-normative)
-Configuration | Discovery | /.well-known/openid-configuration
-Configuration | Dynamic Client Registration | /register
+Authentication | [Token](#token-endpoint) | /token
+Profile | [UserInfo](#userinfo-endpoint) | /userinfo
+Validation | [Keys](#keys-endpoint) | /.well-known/jwks.json <br /> (non-normative)
+Validation | [Introspection](#introspection-endpoint) | /introspect
+Validation | [Check Session Iframe](#check-session-iframe-endpoint) | /check_session <br />  (non-normative)
+Termination | [Revocation](#revocation-endpoint) | /revoke
+Termination | [End Session](#end-session-endpoint) | /end_session <br />  (non-normative)
+Configuration | [Discovery](#discovery-endpoint) | /.well-known/openid-configuration
+Configuration | [Dynamic Client Registration](#dynamic-client-registration-endpoint) | /register
 
 ## Authorization Endpoint
 
 [OpenID Connect Core 1.0 - Authorization Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint)
 
-The Authorization Endpoint `/authorize` is the starting point of the OIDC authentication flow. The client application (Relying Party) redirects the user's browser to this endpoint at the OpenID Provider to authenticate the user and obtain their consent. The request to this endpoint is the [**Authentication Request**](authentication-request.md).
+The Authorization Endpoint `/authorize` is the starting point of the OIDC authentication flow.
+The client application (Relying Party) redirects the user's browser to this endpoint at the OpenID Provider to authenticate the user and obtain their consent. 
+
+The request to this endpoint is the [**Authentication Request**](authentication-request.md).
 
 :::note Example URL
 https://idp.aboutauth.com/authorize
@@ -33,10 +36,11 @@ https://idp.aboutauth.com/authorize
 
 The Token Endpoint `/token` is used by the client application to exchange a grant (like an authorization code or a refresh token) for an Access Token, ID Token, and/or Refresh Token. This interaction happens on the back-channel, away from the user's browser, allowing the client to authenticate securely.
 
-Example URL:
-```
+You can call the token endpoint with a [Token Request](./token-request) during an authentication flow, or the Refresh Token Request when you have a refresh token and want to receive a new access token without re-authenticating.
+
+:::note Example URL
 https://idp.aboutauth.com/token
-```
+:::
 
 ### Token Request
 
@@ -50,7 +54,21 @@ When an Access Token expires, the client can use a Refresh Token Request to obta
 
 ## UserInfo Endpoint
 
-https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
+[OpenID Connect Core 1.0 - UserInfo Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
+
+The UserInfo Endpoint is a protected resource where a client can retrieve claims about the authenticated user.
+To access this endpoint, the client must present the Access Token it received from the Token Endpoint.
+The claims are returned as a JSON object.
+
+A critical security step is to verify that the `sub` (subject) claim in the UserInfo response matches the `sub` from the ID Token to prevent token substitution attacks.
+
+:::note Example URL
+https://idp.aboutauth.com/userinfo
+:::
+
+### UserInfo Request
+
+The client makes an authenticated `GET` or `POST` [UserInfo Request](./11-userinfo-request.md) to the UserInfo Endpoint, including the user's Access Token in the `Authorization` header.
 
 ## Keys Endpoint
 
