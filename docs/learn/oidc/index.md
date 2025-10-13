@@ -30,6 +30,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * Signature and Encryption
 * [Offline Access](17-offline-access.md)
 * Refresh Token
+* [Endpoints and requests](./openid-connect-endpoints-and-requests.mdx)
 
 ## OpenID Connect Standard Protocol Suite
 
@@ -62,6 +63,8 @@ Specifies a secure method for the Authorization Server to return parameters (lik
 ### Other OpenId Connect Specifications
 
 * [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html)
+* [OpenID Connect RP-Initiated Logout 1.0](https://openid.net/specs/openid-connect-rpinitiated-1_0.html)
+* [OpenID Connect Back-Channel Logout 1.0](https://openid.net/specs/openid-connect-backchannel-1_0.html)
 * <span> Implementer's Draft</span> [Self-Issued OpenID Provider v2 - draft 13](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html)
 
 ## Protocols underpinning OpenID Connect
