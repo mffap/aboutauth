@@ -55,7 +55,7 @@ Host: idp.aboutauth.com
 
 The Token Endpoint `/token` is used by the client application to exchange a grant (like an authorization code or a refresh token) for an Access Token, ID Token, and/or Refresh Token. This interaction happens on the back-channel, away from the user's browser, allowing the client to authenticate securely.
 
-You can call the token endpoint with a [**Token Request**](./token-request) during an authentication flow, or the Refresh Token Request when you have a refresh token and want to receive a new access token without re-authenticating.
+You can call the token endpoint with a [**Token Request**](./4-token-request.md) during an authentication flow, or the Refresh Token Request when you have a refresh token and want to receive a new access token without re-authenticating.
 
 :::note Example URL
 https://idp.aboutauth.com/token
@@ -63,7 +63,7 @@ https://idp.aboutauth.com/token
 
 ### Token Request
 
-After receiving an authorization code, the client sends a [**Token Request**](./token-request) to the Token Endpoint to obtain the tokens.
+After receiving an authorization code, the client sends a [**Token Request**](./4-token-request.md) to the Token Endpoint to obtain the tokens.
 The Token Request is an authorized `POST` request to the Token Endpoint.
 
 :::note Example Token Request (Authorization Code Flow)
