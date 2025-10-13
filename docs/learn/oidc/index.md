@@ -14,14 +14,14 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * [OpenID Connect for Developers](what-is-openid-connect.mdx)
 * [ID Token](./id-token)
 * [Authentication Request](./authentication-request)
-* Token Request
+* [Token Request](id-token.md)
 * [Authorization Code Flow](./authorization-code-flow-with-proof-key-for-code-exchange-pkce/)
 * Implicit Flow
 * Hybrid Flow
 * [Initiating Login from a Third Party](./initiating-login-from-a-third-party-sso)
 * [Scopes in OpenID Connect](standard-openid-connect-scopes.md)
 * [Standard Claims](./standard-claims)
-* UserInfo Request
+* [UserInfo Request](11-userinfo-request.md)
 * Aggregated and Distributed Claims
 * Passing a Request Object by Value
 * [Self-Issued OpenID Provider](13-self-issued-openid-provider.md)
@@ -30,6 +30,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * Signature and Encryption
 * [Offline Access](17-offline-access.md)
 * Refresh Token
+* [Endpoints and requests](./openid-connect-endpoints-and-requests.mdx)
 
 ## OpenID Connect Standard Protocol Suite
 
@@ -62,12 +63,16 @@ Specifies a secure method for the Authorization Server to return parameters (lik
 ### Other OpenId Connect Specifications
 
 * [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html)
+* [OpenID Connect RP-Initiated Logout 1.0](https://openid.net/specs/openid-connect-rpinitiated-1_0.html)
+* [OpenID Connect Back-Channel Logout 1.0](https://openid.net/specs/openid-connect-backchannel-1_0.html)
 * <span> Implementer's Draft</span> [Self-Issued OpenID Provider v2 - draft 13](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html)
 
 ## Protocols underpinning OpenID Connect
 
 * [The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
 * [Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)
+* [OAuth 2.0 Token Introspection](https://datatracker.ietf.org/doc/html/rfc7662)
+* [OAuth 2.0 Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009)
 * [Assertion Framework for OAuth 2.0 Client Authentication and Authorization Grants](https://datatracker.ietf.org/doc/html/rfc7521)
 * [JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants](https://datatracker.ietf.org/doc/html/rfc7523)
 * [OAuth 2.0 Multiple Response Type Encoding Practices](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html)

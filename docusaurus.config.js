@@ -60,10 +60,14 @@ const config = {
               rehypeExternalLinks,
               {
                 target: '_blank',
+                /**
+                 * @param {{ properties: { href: string | URL; }; }} node
+                 */
                 content(node) {
                   let url = new URL(node.properties.href)
                   let hostname = url.hostname.replace(/^(www\.)/,"")
-                  return {type: 'text', value: ` (${hostname})` }
+                  const excluded_hosts = ["idp.aboutauth.com"]
+                  return {type: 'text', value: excluded_hosts.includes(hostname) ? "" : ` (${hostname})` }
                 },
                 // content: [
                 //   {type: 'text', value: ' ('},
@@ -79,10 +83,14 @@ const config = {
               rehypeExternalLinks,
               {
                 target: '_blank',
+                /**
+                 * @param {{ properties: { href: string | URL; }; }} node
+                 */
                 content(node) {
                   let url = new URL(node.properties.href)
                   let hostname = url.hostname.replace(/^(www\.)/,"")
-                  return {type: 'text', value: ` (${hostname})` }
+                  const excluded_hosts = ["idp.aboutauth.com"]
+                  return {type: 'text', value: excluded_hosts.includes(hostname) ? "" : ` (${hostname})` }
                 },
               }
             ]
@@ -213,7 +221,7 @@ const config = {
       prism: {  
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ['json'],
+        additionalLanguages: ['json', 'http'],
       },
       mermaid: {
         theme: {light: 'base', dark: 'dark'},
