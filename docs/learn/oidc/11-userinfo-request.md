@@ -2,7 +2,7 @@
 tags: [oidc]
 ---
 
-# OpenID UserInfo Request
+# OpenID Connect UserInfo Request
 
 The UserInfo Endpoint is a protected resource hosted by the OpenID Provider (OP). Its purpose is to return [claims](standard-claims.mdx) about the authenticated user, such as their name, email address, or profile picture.
 
