@@ -29,7 +29,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * Client Authentication
 * Signature and Encryption
 * [Offline Access](17-offline-access.md)
-* Refresh Token
+* [Refresh Token](./18-refresh-tokens.md)
 * [Endpoints and requests](./openid-connect-endpoints-and-requests.mdx)
 
 ## OpenID Connect Standard Protocol Suite
