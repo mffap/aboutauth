@@ -9,7 +9,12 @@ tags: [oidc, claims]
 
 ## Claims
 
-Claims are at the heart of OpenID Connect, acting as the fundamental pieces of information that describe an End-User. In essence, a Claim is a piece of data about a subject, such as a name, an email address, or a profile picture. When an End-User authenticates with an OpenID Provider (OP), the OP returns these claims to the Relying Party (RP) in a verifiable way, typically within an [ID Token](id-token.md) or through the UserInfo Endpoint.
+Claims are at the heart of OpenID Connect, acting as the fundamental pieces of information that describe an End-User.
+In essence, a Claim is a piece of data about a subject, such as a name, an email address, or a profile picture.
+
+When an End-User authenticates with an OpenID Provider (OP), the OP returns these claims to the Relying Party (RP) in a verifiable way, typically within an [ID Token](id-token.md) or through the [UserInfo Endpoint](./11-userinfo-request.md).
+
+Besides "Normal Claims" the OpenID Standard allows for [Aggregated and Distributed Claims](./12-aggregated-and-distributed-claims.md)
 
 ## Standard Claims
 
