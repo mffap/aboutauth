@@ -1,0 +1,191 @@
+# Best Open Source Identity & Access Management Solutions in 2025
+
+Identity and Access Management (IAM) is critical for security and user experience.
+For developers, adopting an Open Source (OSS) solution for IAM isn't just about saving license fees - it's about trust and control.
+
+IAM is a sensitive layer of your security architecture and Open Source and an open source solution can provide many benefits, such as: 
+
+**Transparent Code:** The logic that authenticates your users, stores and handles sensitive information about your users, and integrates with other tools is open for inspection. This allows security experts and your own team to audit it, reducing the risk of backdoors or undisclosed vulnerabilities found in proprietary opaque solutions.
+
+**Transparent Build-Process:** Most open source solutions, besides the software's code, publish the build process and the artifacts. This allows users and researchers to validate that the software was built from the open source code, further reducing the risk of backdoors and vulnerabilities.
+
+**Control Over Data:** You control the deployment and where your data is being stored and processed. If the vendor changes its pricing or strategy, you have the freedom to change the provider.
+
+:::note Understanding Open Source Licenses & Business Models
+
+When choosing an open-source product, the license dictates your legal rights and obligations. Users must look out for the distinction between Permissive (like MIT, Apache 2.0) and Copyleft (like GPL, AGPL) licenses.
+
+* **Permissive Licenses** (e.g., Apache 2.0, BSD-3-Clause) are very liberal, typically allowing you to use, modify, and distribute the software for any purpose, without having to release your own source code.
+* **Copyleft Licenses** (e.g., AGPLv3) are stricter; they require that if you modify the software and run it as a service over a network, you must make the source code of your modifications available to the public. For identity infrastructure, this is a critical consideration if you plan to build proprietary features on top of the core.
+
+There are several commercial open source business models. Commercial providers employ might employ a combination of the following models, even in addition to other revenue generating strategies:
+
+* **Open Core** where the basic product is OSS, but advanced, enterprise-needed features (like SAML or premium connectors) are available only under a separate commercial license. Always check which features are truly open source under the main license.
+* **Services** where the vendor offers professional such as technical support or consulting as part of an ongoing agreement.
+* **Hosting** where the company provides a hosted, managed version as software-as-a-service (SaaS). Customers pay for the convenience and support of a hosted solution.
+:::
+
+## Choosing an Open Source IAM Solution
+
+When selecting an open source IAM solution, developers should look for:
+
+1. **Protocol Support**: Standards-compliant support for OAuth 2.0, OpenID Connect (OIDC), SAML, SCIM, and more.
+
+1. **Scalability & Architecture**: Designed for cloud-native deployment (Docker, Kubernetes/Helm), high-availability setups, and zero-downtime upgrades. The underlying technology (language, database support) should align with your enterprise environment.
+
+1. **Extensibility**: Clear and complete APIs, webhooks, and features for custom logic, integration with third-party services, and customization and branding of user-facing flows.
+
+1. **Community & Support:** An active community (eg, GitHub, Discord, forums) for troubleshooting, along with a clearly defined path to professional or enterprise support with Service Level Agreements (SLAs).
+
+1. **Licensing & Commercial Model:** License and contractual terms that align with how you intend to use the software and compliant to your company's policies, and a commercial model that doesn't hinder your future growth.
+
+## Keycloak
+
+https://github.com/keycloak/keycloak
+
+![GitHub Repo stars](https://img.shields.io/github/stars/keycloak/keycloak)
+![GitHub License](https://img.shields.io/github/license/keycloak/keycloak)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/keycloak/keycloak/main)
+
+The most mature, feature-rich open source identity and federation broker, backed by a large community and derived from Red Hat technology.
+
+**Ideal Use Case:** Complex B2E (Business-to-Employee) or B2B scenarios requiring federation across multiple identity providers (IdPs), such as Active Directory (AD) or other SAML/OIDC systems.
+Its extensive admin console makes it suitable for IT-managed identity.
+
+**Large Scale Deployment:** Deployment at scale can be achieved through clustering instances with load balancing, backed by a robust external database (PostgreSQL, MariaDB).
+Its container-native design (Docker, Kubernetes) is highly documented for high-availability setups.
+
+| Requirement | Notes |
+| :--- | :--- |
+| Protocol Support| Full support for OIDC, OAuth 2.0, and SAML. |
+| Scalability | Excellent clustering and high-availability options. |
+| Extensibility | Highly extensible via Service Provider Interfaces (SPIs), although this approach has some drawbacks.  |
+| Professional Support | Available via third-party vendors and the Red Hat build of Keycloak (a commercial offering). |
+| License & Commercial Model | Core product is fully permissive OSS under an Apache 2.0. Commercial model is subscription-based support (Red Hat) or managed hosting (3rd party) |
+
+## Zitadel
+
+https://github.com/zitadel/zitadel
+
+![GitHub Repo stars](https://img.shields.io/github/stars/zitadel/zitadel)
+![GitHub License](https://img.shields.io/github/license/zitadel/zitadel)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/zitadel/zitadel/main)
+
+A dedicated, cloud-native Identity Infrastructure with built-in multi-tenancy and an API-first approach, focusing heavily on B2B SaaS architecture.
+
+**Ideal Use Case:** SaaS companies building a multi-tenant platform where each customer requires their own isolated identity domain (Organization) for user management and enterprise SSO configuration.
+
+**Large Scale Deployment:** Built on a modern microservice architecture, using Postgres for global, horizontally scalable, and resilient data storage. Deployment is typically via self-managed containers or the hosted cloud offering.
+
+| Requirement | Notes |
+| :--- | :--- |
+| Protocol Support | Full support for OIDC and OAuth 2.0. |
+| Scalability | Cloud-native design ensures high availability and horizontal scaling. |
+| Extensibility | API-first architecture, webhooks, and custom actions allow for flow customization. |
+| Professional Support | Direct Enterprise plans from the Zitadel team offer custom SLAs, Technical Support Managers, and 24/7 support. |
+| License & Commercial Model | Core is Copyleft (AGPLv3). Commercial license is available to bypass AGPL requirements for internal modifications/distribution. Hosted version available in multiple regions. |
+
+## Ory Kratos
+
+![GitHub Repo stars](https://img.shields.io/github/stars/ory/kratos)
+![GitHub License](https://img.shields.io/github/license/ory/kratos)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/ory/kratos/master)
+
+**USP:** A powerful, API-only Identity & User Management System designed for building **headless** user flows. It handles security-critical tasks while you own the UI.
+
+**Ideal Use Case:** Modern web and mobile applications that need a granular, secure service to manage user identities (registration, login, MFA, account recovery) without relying on a predefined UI or theme.
+
+**Large Scale Deployment:** A stateless service that is horizontally scalable across instances. It uses a centralized database (PostgreSQL, MySQL, CockroachDB) and integrates natively with other Ory components (like Ory Oathkeeper for Authorization).
+
+| Requirement | Fulfilled? | Notes |
+| :--- | :--- | :--- |
+| 1. Protocol Support | **Yes** | Acts as an OIDC Identity Provider (IdP) for client applications. |
+| 2. Scalability | **Yes** | Stateless, horizontally scalable microservice architecture. |
+| 3. Extensibility | **Yes** | Extensive use of webhooks for integrating custom business logic into flows. |
+| 4. Professional Support | **Yes** | Available via the Ory Network (managed service) or the Ory Enterprise License (OEL) for self-hosting support. |
+
+***
+
+## Supertokens
+
+![GitHub Repo stars](https://img.shields.io/github/stars/supertokens/supertokens-core)
+![GitHub License](https://img.shields.io/github/license/supertokens/supertokens-core)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/supertokens/supertokens-core/master)
+
+**USP:** Modular, self-hosted, and deeply embeddable authentication service designed to be an easily swappable backend for custom frontends, allowing developers total control over the UX.
+
+**Ideal Use Case:** Applications prioritizing a fully custom, branded authentication user experience (UX) and maximum control over the authentication lifecycle, often migrating from proprietary solutions like Auth0 or Cognito.
+
+**Large Scale Deployment:** Consists of a lightweight core service that can be horizontally scaled and deployed behind a load balancer, with state management handled by a centralized, production-ready database.
+
+| Requirement | Fulfilled? | Notes |
+| :--- | :--- | :--- |
+| 1. Protocol Support | **Yes** | Full support for OIDC and OAuth 2.0; SAML available in the Enterprise package. |
+| 2. Scalability | **Yes** | Core service designed for horizontal scaling across instances. |
+| 3. Extensibility | **Yes** | Modular architecture and open APIs allow for deep customization and use of pre-built frontend SDKs. |
+| 4. Professional Support | **Yes** | Available directly from the SuperTokens team with paid plans, offering SLAs and dedicated engineer access. |
+
+Apache 2.0 + Enterprise License (Open Core)
+
+***
+
+## Gluu
+
+**USP:** An interoperable, full-stack platform covering Authentication, Authorization, Federation, and comprehensive API Security, built on an open standard foundation.
+
+**Ideal Use Case:** Large enterprises, government agencies, and organizations in regulated industries that require a unified platform for a diverse set of IAM services (WSO2, Federation, SCIM) and need strong audit and compliance capabilities.
+
+**Large Scale Deployment:** Optimized for high-performance and availability using containerized deployment, supporting clustering and fine-tuning for high transaction volume.
+
+| Requirement | Fulfilled? | Notes |
+| :--- | :--- | :--- |
+| 1. Protocol Support | **Yes** | Comprehensive support for OIDC, OAuth 2.0, and SAML. |
+| 2. Scalability | **Yes** | Designed for enterprise-level scale and high transaction rates. |
+| 3. Extensibility | **Yes** | Highly extensible through scripting, custom components, and APIs. |
+| 4. Professional Support | **Yes** | Direct subscription tiers from the Gluu company include SLA-backed professional and enterprise support. |
+
+***
+
+## Authentik
+
+**USP:** A modern, feature-rich IAM solution with a strong focus on integration into internal IT infrastructure, particularly for securing internal applications and providing proxy functionality.
+
+**Ideal Use Case:** Organizations looking to centralize access for their internal IT tools, using the solution as a reverse proxy/outpost to easily add SSO/MFA to legacy applications that don't natively support OIDC or SAML.
+
+**Large Scale Deployment:** Built on Python/Go, it's lightweight and easily containerized. High availability is achieved by running multiple replicas behind a load balancer and connecting to a shared PostgreSQL database.
+
+| Requirement | Fulfilled? | Notes |
+| :--- | :--- | :--- |
+| 1. Protocol Support | **Yes** | Full support for OIDC, OAuth 2.0, and SAML. |
+| 2. Scalability | **Yes** | Lightweight design scales well via replicas and load balancing. |
+| 3. Extensibility | **Yes** | Custom providers, policies, and flow definitions allow deep integration. |
+| 4. Professional Support | **Yes** | Enterprise licenses are available directly from the authentik team, offering support and priority updates. |
+
+***
+
+## Authelia
+
+**USP:** Extremely lightweight authentication and authorization server designed to be a simple, secure companion for reverse proxies, focusing on single sign-on (SSO) and Multi-Factor Authentication (MFA).
+
+**Ideal Use Case:** Securing self-hosted applications, internal tools, or homelab environments where the primary need is to enforce a secure login (SSO and MFA) in front of an existing application using a reverse proxy (like Traefik or Nginx).
+
+**Large Scale Deployment:** Its minimal footprint (written in Go) and design make it highly efficient. Scaling is achieved by running multiple stateless instances behind your reverse proxy and sharing state via Redis and a production-ready database.
+
+| Requirement | Fulfilled? | Notes |
+| :--- | :--- | :--- |
+| 1. Protocol Support | **Yes** | OpenID Certified™ OIDC Provider; acts as an authorization provider for reverse proxies. |
+| 2. Scalability | **Yes** | Highly performant and scalable via horizontal deployment of stateless instances. |
+| 3. Extensibility | **Limited** | Extensibility is focused on strong reverse proxy integration rather than deep identity flow customization. |
+| 4. Professional Support | **Yes** | Provided by third-party managed service providers (e.g., Elestio). |
+
+***
+
+## Conclusion: When to Choose Which Solution
+
+Choosing the right OSS IAM is about matching the tool's core strength to your business needs:
+
+* **For Enterprise Federation:** Choose **Keycloak**. Its deep feature set and maturity make it the most reliable hub for aggregating existing corporate identities (AD/LDAP).
+* **For B2B SaaS:** Choose **Zitadel**. Its native multi-tenancy model simplifies the architecture required to give each customer their own isolated IDP.
+* **For Custom CIAM:** Choose **Ory Kratos** or **Supertokens**. Kratos if you want a headless API for total UI control; Supertokens if you want an easier integration with pre-built UI components and SDKs.
+* **For Full IAM Stack & Governance:** Choose **Gluu**. It offers the broadest set of features for complex, regulated environments.
+* **For Internal IT/Proxy Security:** Choose **Authentik** for a feature-rich reverse proxy solution, or **Authelia** for the most lightweight and simple deployment behind a single reverse proxy.
