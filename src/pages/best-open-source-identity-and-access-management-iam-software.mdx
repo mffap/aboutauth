@@ -1,5 +1,7 @@
 # Best Open Source Identity & Access Management Solutions in 2025
 
+---> Provide Links for Docker Compose, Helm Chart etc.
+
 Identity and Access Management (IAM) is critical for security and user experience.
 For developers, adopting an Open Source (OSS) solution for IAM isn't just about saving license fees - it's about trust and control.
 
@@ -99,6 +101,8 @@ A dedicated, cloud-native Identity Infrastructure with built-in multi-tenancy an
 
 ## Ory Kratos
 
+https://github.com/ory/kratos
+
 ![GitHub Repo stars](https://img.shields.io/github/stars/ory/kratos)
 ![GitHub License](https://img.shields.io/github/license/ory/kratos)
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/ory/kratos/master)
@@ -126,6 +130,8 @@ It uses a centralized database (PostgreSQL, MySQL, CockroachDB) and integrates n
 
 ## Supertokens
 
+https://github.com/supertokens/supertokens-core
+
 ![GitHub Repo stars](https://img.shields.io/github/stars/supertokens/supertokens-core)
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/supertokens/supertokens-core/master)
 
@@ -150,65 +156,67 @@ Modular, self-hosted, and deeply embeddable authentication service designed to b
 | Professional Support | Available directly from the SuperTokens team with paid plans, offering SLAs and dedicated engineer access. |
 | License & Commercial Model | Open-Core model. Core auth permissive under an [Apache 2.0 License](https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md), advanced features (e.g., MFA, SAML, Account Linking) require a [Supertoken Enterprise license](https://github.com/supertokens/supertokens-core/blob/master/ee/LICENSE.md). |
 
-***
-
-## Gluu
-
-**USP:** An interoperable, full-stack platform covering Authentication, Authorization, Federation, and comprehensive API Security, built on an open standard foundation.
-
-**Ideal Use Case:** Large enterprises, government agencies, and organizations in regulated industries that require a unified platform for a diverse set of IAM services (WSO2, Federation, SCIM) and need strong audit and compliance capabilities.
-
-**Large Scale Deployment:** Optimized for high-performance and availability using containerized deployment, supporting clustering and fine-tuning for high transaction volume.
-
-| Requirement | Fulfilled? | Notes |
-| :--- | :--- | :--- |
-| 1. Protocol Support | **Yes** | Comprehensive support for OIDC, OAuth 2.0, and SAML. |
-| 2. Scalability | **Yes** | Designed for enterprise-level scale and high transaction rates. |
-| 3. Extensibility | **Yes** | Highly extensible through scripting, custom components, and APIs. |
-| 4. Professional Support | **Yes** | Direct subscription tiers from the Gluu company include SLA-backed professional and enterprise support. |
-
-***
-
 ## Authentik
 
-**USP:** A modern, feature-rich IAM solution with a strong focus on integration into internal IT infrastructure, particularly for securing internal applications and providing proxy functionality.
+https://github.com/goauthentik/authentik
+
+![GitHub Repo stars](https://img.shields.io/github/stars/goauthentik/authentik)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/goauthentik/authentik/main)
+
+A modern, feature-rich IAM solution with a strong focus on integration into internal IT infrastructure, particularly for securing internal applications and providing proxy functionality.
+
+<img
+  src={require('/img/best-oss-iam/github.com_authentik.png').default}
+  alt="Authentik's readme on Github"
+  className="blog-image"
+/>
 
 **Ideal Use Case:** Organizations looking to centralize access for their internal IT tools, using the solution as a reverse proxy/outpost to easily add SSO/MFA to legacy applications that don't natively support OIDC or SAML.
 
 **Large Scale Deployment:** Built on Python/Go, it's lightweight and easily containerized. High availability is achieved by running multiple replicas behind a load balancer and connecting to a shared PostgreSQL database.
 
-| Requirement | Fulfilled? | Notes |
-| :--- | :--- | :--- |
-| 1. Protocol Support | **Yes** | Full support for OIDC, OAuth 2.0, and SAML. |
-| 2. Scalability | **Yes** | Lightweight design scales well via replicas and load balancing. |
-| 3. Extensibility | **Yes** | Custom providers, policies, and flow definitions allow deep integration. |
-| 4. Professional Support | **Yes** | Enterprise licenses are available directly from the authentik team, offering support and priority updates. |
-
-***
+| Requirement |  Notes |
+| :--- | :--- |
+| Protocol Support | Full support for OIDC, OAuth 2.0, and SAML. |
+| Scalability |  Lightweight design scales well via replicas and load balancing. |
+| Extensibility |  Custom providers, policies, and flow definitions allow deep integration. |
+| Professional Support |  Enterprise licenses are available directly from the authentik team, offering support and priority updates. |
+| License & Commercial Model | Open-Core model. Core auth permissive under an [MIT](https://github.com/goauthentik/authentik/blob/main/LICENSE), advanced features require a [authentik Enterprise Edition (EE) license](https://github.com/goauthentik/authentik/blob/main/authentik/enterprise/LICENSE). |
 
 ## Authelia
 
-**USP:** Extremely lightweight authentication and authorization server designed to be a simple, secure companion for reverse proxies, focusing on single sign-on (SSO) and Multi-Factor Authentication (MFA).
+https://github.com/goauthentik/authentik
+
+![GitHub Repo stars](https://img.shields.io/github/stars/authelia/authelia)
+![GitHub License](https://img.shields.io/github/license/authelia/authelia)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/authelia/authelia/master)
+
+Extremely lightweight authentication and authorization server designed to be a simple, secure companion for reverse proxies, focusing on single sign-on (SSO) and Multi-Factor Authentication (MFA).
+<img
+  src={require('/img/best-oss-iam/github.com_authelia.png').default}
+  alt="Authelia's readme on Github"
+  className="blog-image"
+/>
 
 **Ideal Use Case:** Securing self-hosted applications, internal tools, or homelab environments where the primary need is to enforce a secure login (SSO and MFA) in front of an existing application using a reverse proxy (like Traefik or Nginx).
 
 **Large Scale Deployment:** Its minimal footprint (written in Go) and design make it highly efficient. Scaling is achieved by running multiple stateless instances behind your reverse proxy and sharing state via Redis and a production-ready database.
 
-| Requirement | Fulfilled? | Notes |
-| :--- | :--- | :--- |
-| 1. Protocol Support | **Yes** | OpenID Certified™ OIDC Provider; acts as an authorization provider for reverse proxies. |
-| 2. Scalability | **Yes** | Highly performant and scalable via horizontal deployment of stateless instances. |
-| 3. Extensibility | **Limited** | Extensibility is focused on strong reverse proxy integration rather than deep identity flow customization. |
-| 4. Professional Support | **Yes** | Provided by third-party managed service providers (e.g., Elestio). |
+| Requirement | Notes |
+| :--- | :--- |
+| Protocol Support | OpenID Certified™ OIDC Provider; acts as an authorization provider for reverse proxies. |
+| Scalability | Highly performant and scalable via horizontal deployment of stateless instances. |
+| Extensibility  | Extensibility is focused on strong reverse proxy integration rather than deep identity flow customization. |
+| Professional Support | Provided by third-party managed service providers (e.g., Elestio). |
+| License & Commercial Model | Fully permissive under [Apache 2.0 license](https://github.com/authelia/authelia/blob/master/LICENSE). The primary model is community support; professional support is only available via third-party consultants/hosting. |
 
 ***
 
-## Conclusion: When to Choose Which Solution
+## Conclusion: When to Choose Which Open Source IAM Solution
 
 Choosing the right OSS IAM is about matching the tool's core strength to your business needs:
 
 * **For Enterprise Federation:** Choose **Keycloak**. Its deep feature set and maturity make it the most reliable hub for aggregating existing corporate identities (AD/LDAP).
 * **For B2B SaaS:** Choose **Zitadel**. Its native multi-tenancy model simplifies the architecture required to give each customer their own isolated IDP.
 * **For Custom CIAM:** Choose **Ory Kratos** or **Supertokens**. Kratos if you want a headless API for total UI control; Supertokens if you want an easier integration with pre-built UI components and SDKs.
-* **For Full IAM Stack & Governance:** Choose **Gluu**. It offers the broadest set of features for complex, regulated environments.
 * **For Internal IT/Proxy Security:** Choose **Authentik** for a feature-rich reverse proxy solution, or **Authelia** for the most lightweight and simple deployment behind a single reverse proxy.
