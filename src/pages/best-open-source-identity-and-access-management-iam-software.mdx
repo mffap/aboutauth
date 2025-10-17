@@ -49,6 +49,12 @@ https://github.com/keycloak/keycloak
 
 The most mature, feature-rich open source identity and federation broker, backed by a large community and derived from Red Hat technology.
 
+<img
+  src={require('/img/best-oss-iam/github.com_keycloak.png').default}
+  alt="Keycloak's readme on Github"
+  className="blog-image"
+/>
+
 **Ideal Use Case:** Complex B2E (Business-to-Employee) or B2B scenarios requiring federation across multiple identity providers (IdPs), such as Active Directory (AD) or other SAML/OIDC systems.
 Its extensive admin console makes it suitable for IT-managed identity.
 
@@ -73,6 +79,12 @@ https://github.com/zitadel/zitadel
 
 A dedicated, cloud-native Identity Infrastructure with built-in multi-tenancy and an API-first approach, focusing heavily on B2B SaaS architecture.
 
+<img
+  src={require('/img/best-oss-iam/github.com_zitadel.png').default}
+  alt="Zitadel's readme on Github"
+  className="blog-image"
+/>
+
 **Ideal Use Case:** SaaS companies building a multi-tenant platform where each customer requires their own isolated identity domain (Organization) for user management and enterprise SSO configuration.
 
 **Large Scale Deployment:** Built on a modern microservice architecture, using Postgres for global, horizontally scalable, and resilient data storage. Deployment is typically via self-managed containers or the hosted cloud offering.
@@ -91,39 +103,53 @@ A dedicated, cloud-native Identity Infrastructure with built-in multi-tenancy an
 ![GitHub License](https://img.shields.io/github/license/ory/kratos)
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/ory/kratos/master)
 
-**USP:** A powerful, API-only Identity & User Management System designed for building **headless** user flows. It handles security-critical tasks while you own the UI.
+A powerful, API-only Identity & User Management System designed for building headless user flows. It handles security-critical tasks while you own the UI.
+
+<img
+  src={require('/img/best-oss-iam/github.com_ory_kratos.png').default}
+  alt="Ory Kratos' readme on Github"
+  className="blog-image"
+/>
 
 **Ideal Use Case:** Modern web and mobile applications that need a granular, secure service to manage user identities (registration, login, MFA, account recovery) without relying on a predefined UI or theme.
 
-**Large Scale Deployment:** A stateless service that is horizontally scalable across instances. It uses a centralized database (PostgreSQL, MySQL, CockroachDB) and integrates natively with other Ory components (like Ory Oathkeeper for Authorization).
+**Large Scale Deployment:** A stateless service that is horizontally scalable across instances.
+It uses a centralized database (PostgreSQL, MySQL, CockroachDB) and integrates natively with other Ory components (like Ory Oathkeeper for Authorization).
 
-| Requirement | Fulfilled? | Notes |
-| :--- | :--- | :--- |
-| 1. Protocol Support | **Yes** | Acts as an OIDC Identity Provider (IdP) for client applications. |
-| 2. Scalability | **Yes** | Stateless, horizontally scalable microservice architecture. |
-| 3. Extensibility | **Yes** | Extensive use of webhooks for integrating custom business logic into flows. |
-| 4. Professional Support | **Yes** | Available via the Ory Network (managed service) or the Ory Enterprise License (OEL) for self-hosting support. |
+| Requirement | Notes |
+| :--- | :--- |
+| Protocol Support | Acts as an OIDC Identity Provider (IdP) for client applications. |
+| Scalability | Stateless, horizontally scalable microservice architecture. |
+| Extensibility |  Extensive use of webhooks for integrating custom business logic into flows. |
+| Professional Support | Available via the Ory Network (managed service) or the Ory Enterprise License (OEL) for self-hosting support. |
+| License & Commercial Model | Core product is permissive under an [Apache 2.0 License](https://github.com/ory/kratos/blob/master/LICENSE). Commercial model is focused on hosting (Ory Network) and self-hosted professional support/SLAs. |
 
 ***
 
 ## Supertokens
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/supertokens/supertokens-core)
-![GitHub License](https://img.shields.io/github/license/supertokens/supertokens-core)
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/supertokens/supertokens-core/master)
 
-**USP:** Modular, self-hosted, and deeply embeddable authentication service designed to be an easily swappable backend for custom frontends, allowing developers total control over the UX.
+Modular, self-hosted, and deeply embeddable authentication service designed to be an easily swappable backend for custom front-ends, allowing developers total control over the UX.
+
+<img
+  src={require('/img/best-oss-iam/github.com_supertokens.png').default}
+  alt="Supertoken's readme on Github"
+  className="blog-image"
+/>
+
 
 **Ideal Use Case:** Applications prioritizing a fully custom, branded authentication user experience (UX) and maximum control over the authentication lifecycle, often migrating from proprietary solutions like Auth0 or Cognito.
 
 **Large Scale Deployment:** Consists of a lightweight core service that can be horizontally scaled and deployed behind a load balancer, with state management handled by a centralized, production-ready database.
 
-| Requirement | Fulfilled? | Notes |
-| :--- | :--- | :--- |
-| 1. Protocol Support | **Yes** | Full support for OIDC and OAuth 2.0; SAML available in the Enterprise package. |
-| 2. Scalability | **Yes** | Core service designed for horizontal scaling across instances. |
-| 3. Extensibility | **Yes** | Modular architecture and open APIs allow for deep customization and use of pre-built frontend SDKs. |
-| 4. Professional Support | **Yes** | Available directly from the SuperTokens team with paid plans, offering SLAs and dedicated engineer access. |
+| Requirement |  Notes |
+| :--- | :--- |
+| Protocol Support | Full support for OIDC and OAuth 2.0; SAML available in the Enterprise package. |
+| Scalability | Core service designed for horizontal scaling across instances. |
+| Extensibility  | Modular architecture and open APIs allow for deep customization and use of pre-built frontend SDKs. |
+| Professional Support | Available directly from the SuperTokens team with paid plans, offering SLAs and dedicated engineer access. |
 
 Apache 2.0 + Enterprise License (Open Core)
 
