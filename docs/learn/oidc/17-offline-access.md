@@ -1,4 +1,5 @@
 ---
+sidebar_label: Offline Access
 tags: [oidc]
 ---
 
@@ -6,12 +7,12 @@ tags: [oidc]
 
 [OpenID Connect Core 1.0 incorporating errata set 2 - Offline Access](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)
 
-In OpenID Connect, offline access is a [scope value](standard-openid-connect-scopes.md), `offline_access`, that a client can request to obtain a Refresh Token from the Authorization Server.
+In OpenID Connect, offline access is a [scope value](9-standard-openid-connect-scopes.md), `offline_access`, that a client can request to obtain a Refresh Token from the Authorization Server.
 This Refresh Token allows the client to get new Access Tokens without the user being actively authenticated, enabling access to resources even when the user is offline.
 
 ## How to request offline access
 
-Developers request this access by including the `offline_access` [scope](standard-openid-connect-scopes.md) in the [authorization request](authentication-request.md).
+Developers request this access by including the `offline_access` [scope](9-standard-openid-connect-scopes.md) in the [authorization request](authentication-request.md).
 
 ## Consent for offline access
 

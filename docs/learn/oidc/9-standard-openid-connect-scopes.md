@@ -1,4 +1,5 @@
 ---
+sidebar_label: Scopes
 tags: [oidc, scopes]
 ---
 

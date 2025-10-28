@@ -1,5 +1,6 @@
 ---
-tags: [oidc]
+sidebar_label: UserInfo Endpoint
+tags: [oidc, UserInfo]
 ---
 
 # OpenID Connect UserInfo Request
