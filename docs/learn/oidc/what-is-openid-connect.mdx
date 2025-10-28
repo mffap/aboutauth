@@ -44,7 +44,7 @@ To fully understand OpenId Connect, it is essential to differentiate between aut
 OpenID Connect builds on OAuth 2.0, adding an identity layer to its authorization framework.
 OIDC extends, not replaces, OAuth 2.0, providing comprehensive authentication.
 They work together for identity and access management.
-A common mistake is using an [ID token](id-token.md) for resource access instead of an access token, which can cause security vulnerabilities.
+A common mistake is using an [ID token](2-id-token.md) for resource access instead of an access token, which can cause security vulnerabilities.
 An ID Token is only used to answer the question “Who are you?” but not “What are you allowed to do”, the latter is taken care of by Access Tokens.
 
 OIDC's design as an "identity layer on OAuth 2.0" reflects a deliberate architectural choice.
@@ -77,7 +77,7 @@ The OpenID Connect authentication flow involves a **Relying Party (RP)**, which 
 An OpenID Connect Authentication Flow (Authorization Code Flow with PKCE) follows these steps:
 
 1. **User Initiates Login:** The user, wanting to access a service or application (the **Relying Party**), clicks a 'Sign In' or 'Login' button within the Relying Party's application.  
-2. **Redirection to OP:** The Relying Party, acting as an intermediary, redirects the user's browser to the **OpenID Provider's** (OP) authentication endpoint with an [**Authentication Request**](authentication-request.md). This redirection includes the Relying Party's unique **client ID** (to identify itself to the OP) and specifies the requested [**identity scopes**](standard-openid-connect-scopes.md) (the specific user information, like profile or email, it needs from the OP).  
+2. **Redirection to OP:** The Relying Party, acting as an intermediary, redirects the user's browser to the **OpenID Provider's** (OP) authentication endpoint with an [**Authentication Request**](3-authentication-request.md). This redirection includes the Relying Party's unique **client ID** (to identify itself to the OP) and specifies the requested [**identity scopes**](9-standard-openid-connect-scopes.md) (the specific user information, like profile or email, it needs from the OP).  
 3. **User Authenticates with OP:** The OpenID Provider, now directly interacting with the user, prompts them to authenticate their identity (e.g., by entering a username and password, using their passkey, redirecting to a third party OP, or leveraging an existing session). The OP also requests the user's consent to share the requested identity information with the Relying Party.  
 4. **OP redirects with Authorization Code:** If the user grants consent, the Authorization Server generates an authorization code. OP then redirects the user's browser back to the uri specified by the client, including the authorization code.  
 5. **RP exchange Authorization Code for Tokens:** The relying party receives the authorization code. It then makes a direct, back-channel (this request is not done via the user's browser) Token Request to the Authorization Server's token endpoint.
@@ -137,7 +137,7 @@ OpenID Connect leverages distinct token types, each serving a specific purpose w
 
 [OpenID Connect Core 1.0 incorporating errata set 2 - ID Token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
 
-The [ID Token](id-token.md), the core of OpenID Connect, verifies user identity to the Relying Party.  
+The [ID Token](2-id-token.md), the core of OpenID Connect, verifies user identity to the Relying Party.  
 It's a JSON Web Token (JWT), a compact, URL-safe, digitally signed representation of claims. The ID Token's payload contains standard claims about the authenticated user and the token. Key claims include:
 
 * **sub (subject):** Unique user identifier.  
@@ -242,7 +242,7 @@ For developers building Relying Parties, adhering to best practices is paramount
 The OIDC Standards mention [Token Substitution](https://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution) as a class of attacks in which a malicious user swaps an Authorization Code intended for a legitimate user with the attacker's token.
 The attacker can simply "cut and paste" the token, that is available in the browser, from on session in a http message for a different session.
 
-Because of Token Substitution attacks, UserInfo Response can have a different `sub` (subject) element than the `sub` that was issued during authentication to the [ID Token](id-token.md).
+Because of Token Substitution attacks, UserInfo Response can have a different `sub` (subject) element than the `sub` that was issued during authentication to the [ID Token](2-id-token.md).
 The `sub` claim in the UserInfo Response must be verified to exactly match the sub claim in the ID Token.
 
 This means that the client must store the ID Token's `sub` claim and associate it to the user's session.

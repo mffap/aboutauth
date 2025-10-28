@@ -53,6 +53,8 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           exclude: ['**/drafts/**'],
+          sidebarCollapsed: false,
+
           editUrl:
             github_url + '/tree/main/packages/create-docusaurus/templates/shared/',
           rehypePlugins: [
@@ -122,9 +124,7 @@ const config = {
     
     ({
       // Replace with your project's social card
-      image: 'img/aboutauth-social-card.jpg',
-      sidebarCollapsed: false,
-  
+      image: 'img/aboutauth-social-card.jpg',  
       colorMode: {
         defaultMode: 'light',
         disableSwitch: true,
