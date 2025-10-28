@@ -1,5 +1,4 @@
 ---
-sidebar_position: 3
 tags: [oidc, authentication, oauth2]
 ---
 
@@ -18,7 +17,7 @@ This redirection carries the authentication request as query parameters in the U
 
 OpenID Connect uses the following mandatory OAuth 2.0 request parameters with the Authorization Code Flow:
 
-* `scope`: (required) This parameter defines the permissions your application requests as [scopes](standard-openid-connect-scopes.md). For OIDC, it must include *openid*, which signals that an ID token should be returned. Additionally, it can include [other scopes](standard-openid-connect-scopes.md) like *profile*, *email*, or *phone* to request user information. When requesting the special scope [offline_access](17-offline-access.md) a refresh token will be issued.
+* `scope`: (required) This parameter defines the permissions your application requests as [scopes](9-standard-openid-connect-scopes.md). For OIDC, it must include *openid*, which signals that an ID token should be returned. Additionally, it can include [other scopes](9-standard-openid-connect-scopes.md) like *profile*, *email*, or *phone* to request user information. When requesting the special scope [offline_access](17-offline-access.md) a refresh token will be issued.
 * `response_type`: (required) This crucial parameter specifies the desired authorization flow and the type of token to be returned. For OIDC, it typically includes *code* for the authorization code flow, or *id_token* (and optionally *token*) for the implicit flow or hybrid flow.
 * `client_id`: (required) This identifies your client application to the OIDC provider, ensuring that the provider knows which application is requesting authentication.
 * `redirect_uri`: (required) This indicates the URL where the OIDC provider should redirect the user after authentication, along with the authorization code or tokens. It's a critical security measure, as the provider will only redirect to pre-registered URIs.
@@ -36,7 +35,7 @@ OpenID specifies the following request parameters for authentication:
 * `acr_values`: (optional) Requests specific Authentication Context Class Reference (ACR) levels, indicating desired authentication strength. The client sends ACR values, like "mfa" or "level3," and the server attempts to authenticate accordingly. The resulting ID token's acr claim shows the actual level used. Servers define the available ACR values.
 * `display`: (optional) Specifies how the authorization server displays the authentication and consent user interface. Default is *page* instructing the authorization server to display full-page authentication / consent UI. Other accepted values are *popup* (pop-up view), *touch* (optimized for touch interfaces), and *wap* ("feature phone").
 * `registration`: (optional) This allows a client to dynamically register itself with the authorization server during the authentication process. Instead of pre-registering the client, this parameter provides client registration information directly within the initial request[^2].
-* `claims`: (optional) This allows a client application to request specific [claims](standard-claims.mdx) (user attributes) from the authorization server. It provides a structured way to define which user information the client needs beyond the standard scopes. The "claims" parameter allows for more fine-grained control over which specific claims are requested, beyond the standard scopes[^3].
+* `claims`: (optional) This allows a client application to request specific [claims](10-standard-claims.mdx) (user attributes) from the authorization server. It provides a structured way to define which user information the client needs beyond the standard scopes. The "claims" parameter allows for more fine-grained control over which specific claims are requested, beyond the standard scopes[^3].
 * `claims_locales`: (optional) This is used to request that claims (user attributes) be returned in specific languages or locales. It allows client applications to specify their preferred languages for user information[^4].
 * `request`: (optional) This provide mechanisms for passing authorization request parameters in a more secure and flexible manner than embedding them directly in the URL's query string. This parameter carries the entire authorization request as a JSON Web Token (JWT). This allows for signing or encrypting the request, enhancing security and preventing tampering[^5].
 * `request_uri`: (optional) This parameter provides a URI where the authorization server can retrieve the authorization request JWT. Instead of embedding the JWT directly in the URL, the client provides a reference to it[^5].
