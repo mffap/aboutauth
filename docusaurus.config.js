@@ -40,6 +40,7 @@ const config = {
 
   markdown: {
     mermaid: true,
+    emoji: false
   },
   trailingSlash: true,
   themes: ['@docusaurus/theme-mermaid'],
