@@ -9,7 +9,7 @@ The UserInfo Endpoint is a protected resource hosted by the OpenID Provider (OP)
 
 While some claims can be included directly in the ID Token, fetching them from the UserInfo Endpoint has a few advantages:
 
-* It keeps the [ID Token](id-token.md) small and focused on the authentication event itself.
+* It keeps the [ID Token](2-id-token.md) small and focused on the authentication event itself.
 * It provides a standardized way to retrieve user information that might be updated after the initial login.
 
 A UserInfo Request is a simple, authenticated API call made by your application (the Relying Party) to the UserInfo Endpoint.

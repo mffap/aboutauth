@@ -9,7 +9,7 @@ Scopes in OpenID Connect are values used during authentication to specify which 
 While [OAuth 2.0 uses scopes for permission to access resources](https://www.rfc-editor.org/rfc/rfc6749.html#section-3.3), OIDC uses them to request specific [claims about the authenticated user](standard-claims.mdx) or enable use of refresh tokens.
 
 A claim is a piece of information about the user, like their name, email, or a unique identifier.
-[Claims](standard-claims.mdx) are returned in the [ID Token](id-token.md) and/or through the UserInfo Endpoint.
+[Claims](standard-claims.mdx) are returned in the [ID Token](2-id-token.md) and/or through the UserInfo Endpoint.
 Scopes are essentially a shorthand for requesting a bundle of these claims.
 
 ## Standard Scopes

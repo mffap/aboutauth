@@ -14,7 +14,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * [OpenID Connect for Developers](what-is-openid-connect.mdx)
 * [ID Token](./id-token)
 * [Authentication Request](./authentication-request)
-* [Token Request](id-token.md)
+* [Token Request](2-id-token.md)
 * [Authorization Code Flow](./authorization-code-flow-with-proof-key-for-code-exchange-pkce/)
 * Implicit Flow
 * Hybrid Flow
@@ -38,7 +38,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 
 **[OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)**
 
-The foundational specification. It defines the main OIDC functionalities, including [authentication flows](authorization-code-flow-with-proof-key-for-code-exchange-pkce.md), the [ID Token](id-token.md), and the UserInfo endpoint, all built on top of OAuth 2.0.
+The foundational specification. It defines the main OIDC functionalities, including [authentication flows](authorization-code-flow-with-proof-key-for-code-exchange-pkce.md), the [ID Token](2-id-token.md), and the UserInfo endpoint, all built on top of OAuth 2.0.
 
 ### OIDC Dynamic
 
