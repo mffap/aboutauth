@@ -12,12 +12,12 @@ This Refresh Token allows the client to get new Access Tokens without the user b
 
 ## How to request offline access
 
-Developers request this access by including the `offline_access` [scope](9-standard-openid-connect-scopes.md) in the [authorization request](authentication-request.md).
+Developers request this access by including the `offline_access` [scope](9-standard-openid-connect-scopes.md) in the [authorization request](3-authentication-request.md).
 
 ## Consent for offline access
 
 The Authorization Server obtains user consent by presenting the user with a consent screen.
-This screen is part of the OAuth 2.0 or OpenID Connect authorization flow, using the [prompt parameter](authentication-request.md) `prompt=consent` and serves as the mechanism for the resource owner (the user) to grant or deny a client (the application) access to their protected resources.
+This screen is part of the OAuth 2.0 or OpenID Connect authorization flow, using the [prompt parameter](3-authentication-request.md) `prompt=consent` and serves as the mechanism for the resource owner (the user) to grant or deny a client (the application) access to their protected resources.
 
 After successful authentication, the Authorization Server displays a dedicated consent screen to the user.
 This screen is crucial because it provides transparency.
