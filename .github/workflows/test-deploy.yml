@@ -20,6 +20,12 @@ jobs:
           node-version: 18
           cache: pnpm
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4 # Use the pnpm setup action
+        with:
+          version: 10 # Optional: Specify a pnpm version, otherwise the latest is used
+
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Test build website
