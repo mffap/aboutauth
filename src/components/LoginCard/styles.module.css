@@ -1,0 +1,165 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--ifm-color-primary-contrast, #fff);
+  color: var(--ifm-color-primary, #0b3d91);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 18px rgba(11, 61, 145, 0.08);
+}
+
+.header {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  color: inherit;
+}
+
+.input {
+  margin-top: 0.4rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(11, 61, 145, 0.12);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: transparent;
+  color: inherit;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.link {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.buttonPrimary {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.6rem;
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast, #fff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.or {
+  margin: 0.75rem 0 0.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(11, 61, 145, 0.6);
+}
+
+.socialRow {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.socialButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid rgba(11, 61, 145, 0.08);
+  background: transparent;
+  cursor: pointer;
+  position: relative; /* needed for badge positioning */
+}
+
+.googleIcon { color: transparent; } /* uses SVG fills */
+.githubIcon { color: currentColor; }
+.phoneIcon { color: currentColor; }
+
+@media (min-width: 640px) {
+  .card { padding: 1.5rem; }
+}
+
+/* Phone Badge Styles */
+.phoneBadge {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--ifm-color-primary);
+  border-radius: 50%;
+  right: 6px;
+  top: 6px;
+  box-shadow: 0 0 6px rgba(17,122,255,0.12);
+  animation: badgePop 1.6s infinite ease-in-out;
+}
+
+@keyframes badgePop {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.phoneButton { animation: pulse 2s infinite ease-in-out; }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(17,122,255,0.12); }
+  70% { box-shadow: 0 0 0 10px rgba(17,122,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(17,122,255,0); }
+}
+/* Modal overlay for fingerprint prompt */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  background: var(--ifm-color-primary-contrast, #fff);
+  color: inherit;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.modalTitle { margin: 0 0 0.5rem 0; font-size: 1.125rem; }
+.modalText { margin: 0 0 1rem 0; color: rgba(0,0,0,0.7); }
+.modalActions { display:flex; justify-content:center; gap:0.5rem; }
+
+.buttonSecondary {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(11,61,145,0.1);
+  background: transparent;
+  cursor: pointer;
+}
