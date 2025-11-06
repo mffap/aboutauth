@@ -12,43 +12,69 @@ These mechanisms enable the separation of concerns and the integration of specia
 ## Distributed Claims
 
 Distributed Claims are claims that the Identity Provider (OP) delegates the retrieval of to the application (RP).
-This is typically used for claims that are too large, volatile, or highly sensitive to include directly in the ID Token or UserInfo response.
+This is typically used for claims that are too large, volatile, or highly sensitive to include directly in the [ID Token](2-id-token.md) or [UserInfo](11-userinfo-request.md) response.
 
 ```mermaid
 flowchart-elk TB
-    IdP[Identity Provider] -- Permission --> RP
-    CP1["Claim Provider 1 (eg, CRM)"] -- Claims --> RP["Relying Party (application)"]
-    CP2["Claim Provider 2 (eg, HRIS)"] -- Claims --> RP
-    CP3[Claim Provider 3] -- Claims --> RP
+    IdP[Identity Provider]:::solidBox -- Permission --> RP
+    RP -- Request --> CP1["Claim Provider 1 (eg, CRM)"] -- Claims --> RP["Relying Party (application)"]
+    RP --> CP2["Claim Provider 2 (eg, Payment)"] --> RP
+    RP --> CP3[Claim Provider 3] --> RP
+    classDef solidBox fill:#D36915;
+```
+
+The OP includes a special JSON object in the UserInfo response or [ID Token](2-id-token.md) instead of the actual claim value.
+This JSON object must contain three required fields:
+
+* `claim_names`: An array of strings listing the claims to be retrieved (e.g., `["street_address", "phone_number"]`).
+* `endpoint`: The URL of the third-party Claims Provider's API endpoint.
+* `access_token`: A Bearer Token the RP must use when calling the `endpoint`.
+
+The RP must make a separate HTTP GET request to the `endpoint` URL, presenting the provided `access_token` in the Authorization header, to fetch the actual claims. This introduces an extra network hop and a dependency on the Claims Provider's availability and security model.
+
+:::note Example Distributed Claims
+
+```json
+{
+   "sub": "248289761001",
+   "name": "Jane Doe",
+   "given_name": "Jane",
+   "family_name": "Doe",
+   "email": "janedoe@example.com",
+   "birthdate": "0000-03-22",
+   "_claim_names": {
+     "country": "src1",
+     "is_customer": "src1",
+     "payment_info": "src2",
+    },
+   "_claim_sources": {
+     "src1": {
+        "endpoint": "https://crm.example.com/claim_source"
+     },
+     "src2": {
+        "endpoint": "https://payments.example.com/claim_source",
+        "access_token": "ksj3n283dke"
+     }
+   }
+}
 ```
 
 
-The IdP (OP) includes a special JSON object in the UserInfo response or ID Token instead of the actual claim value.
-This JSON object must contain three required fields:
-    * `claim_names`: An array of strings listing the claims to be retrieved (e.g., `["street_address", "phone_number"]`).
-    * `endpoint`: The URL of the third-party Claims Provider's API endpoint.
-    * `access_token`: A Bearer Token the RP must use when calling the `endpoint`.
 
-The RP must make a separate HTTP GET request to the `endpoint` URL, presenting the provided `access_token` in the Authorization header, to fetch the actual claims. This introduces an extra network hop and a dependency on the Claims Provider's availability and security model.
+*Line breaks for demonstration purposes*
+:::
 
 ## Aggregated Claims
 
 ```mermaid
 flowchart-elk LR
-    CP1["Claim Provider 1 (eg, CRM)"] -- Signed Claims (JWT) --> IdP[Identity Provider] --> RP["Relying Party (application)"]
+    CP1["Claim Provider 1 (eg, CRM)"] -- Signed Claims (JWT) --> IdP[Identity Provider]:::solidBox --> RP["Relying Party (application)"]
     CP2["Claim Provider 2 (eg, HRIS)"] -- Signed Claims (JWT) --> IdP
     CP3[Claim Provider 3] -- Signed Claims (JWT) --> IdP
+    classDef solidBox fill:#D36915;
 ```
 
-## References
 
-* [OpenID Connect Core 1.0 incorporating errata set 2 - Aggregated and Distributed Claims](https://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims)
-* [OpenID Connect as a KYC Token distribution protocol](https://ec.europa.eu/futurium/sites/futurium/files/7_nat_sakimura_openid.pdf)
-* [OpenID Connect Claims Aggregation Draft 02, 2021](https://openid.net/specs/openid-connect-claims-aggregation-1_0-02.html)
-* [OpenID Connect Claims Aggregation 1.0 - Draft 03, 2025](https://openid.net/specs/openid-connect-claims-aggregation-1_0.html)
-## OpenID Connect: Aggregated and Distributed Claims Explained
-
-In OpenID Connect (OIDC), **Standard Claims** (like `sub`, `email`, `name`) and **Custom Claims** are attributes directly asserted and digitally signed by the primary **OpenID Provider (OP)**. However, OIDC includes two mechanisms, **Aggregated Claims** and **Distributed Claims**, that allow an OP to integrate data from external sources, known as **Claims Providers**. These mechanisms enable the separation of concerns and the integration of specialized attribute authorities.
 
 ***
 
@@ -68,24 +94,6 @@ The RP receives the claims within the main token structure, but must then valida
 
 ***
 
-### Distributed Claims
-
-**Distributed Claims** are claims that the OP delegates the retrieval of to the RP. This is typically used for claims that are too large, volatile, or highly sensitive to include directly in the ID Token or UserInfo response.
-
-#### How They are Returned
-
-1.  The OP includes a special JSON object in the UserInfo response or ID Token instead of the actual claim value.
-2.  This JSON object must contain three required fields:
-    * `claim_names`: An array of strings listing the claims to be retrieved (e.g., `["street_address", "phone_number"]`).
-    * `endpoint`: The URL of the third-party Claims Provider's API endpoint.
-    * `access_token`: A Bearer Token the RP must use when calling the `endpoint`.
-
-The RP must make a **separate HTTP GET request** to the `endpoint` URL, presenting the provided `access_token` in the Authorization header, to fetch the actual claims. This introduces an extra network hop and a dependency on the Claims Provider's availability and security model.
-
-*Reference: [OIDC Core Spec on Aggregated and Distributed Claims](https://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims)*
-
-***
-
 ### Differentiation
 
 | Feature | Standard/Custom Claims | Aggregated Claims | Distributed Claims |
@@ -102,3 +110,13 @@ The RP must make a **separate HTTP GET request** to the `endpoint` URL, presenti
 | **Standard/Custom** | Literal value (e.g., `"John Doe"`). | OP's signature on the token. |
 | **Aggregated** | Nested JWT signed by Claims Provider. | OP's signature on the container + Claims Provider's signature on the nested JWT. |
 | **Distributed** | JSON object with `endpoint` and `access_token`. | OP's signature on the container + RP must trust the secure channel to the third-party Claims Provider. |
+
+## References
+
+* [OpenID Connect Core 1.0 incorporating errata set 2 - Aggregated and Distributed Claims](https://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims)
+* [OpenID Connect as a KYC Token distribution protocol](https://ec.europa.eu/futurium/sites/futurium/files/7_nat_sakimura_openid.pdf)
+* [OpenID Connect Claims Aggregation Draft 02, 2021](https://openid.net/specs/openid-connect-claims-aggregation-1_0-02.html)
+* [OpenID Connect Claims Aggregation 1.0 - Draft 03, 2025](https://openid.net/specs/openid-connect-claims-aggregation-1_0.html)
+## OpenID Connect: Aggregated and Distributed Claims Explained
+
+In OpenID Connect (OIDC), **Standard Claims** (like `sub`, `email`, `name`) and **Custom Claims** are attributes directly asserted and digitally signed by the primary **OpenID Provider (OP)**. However, OIDC includes two mechanisms, **Aggregated Claims** and **Distributed Claims**, that allow an OP to integrate data from external sources, known as **Claims Providers**. These mechanisms enable the separation of concerns and the integration of specialized attribute authorities.
