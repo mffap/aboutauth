@@ -76,13 +76,14 @@ The RP must make a separate HTTP GET request to the `endpoint` URL, presenting t
 
 :::
 
-:::note Example Distributed Claims: Claim Provider 
+:::note Example Distributed Claims: Claim Provider
 
 The client application needs to send a second request to the claim provider to receive the distributed claims.
+The request uses the provided access token in the Authorization header to authenticate with the Claims Provider.
 
 Example get request to the Claims Provider
 
-```http 
+```http
 GET /claim_source HTTP/1.1
 Host: crm.example.com
 Authentication: Bearer ksj3n283dke
@@ -114,11 +115,73 @@ flowchart-elk LR
 
 ### How They are Returned
 
-1. The Claims Provider issues a **JSON Web Token (JWT)** containing the claims (e.g., specific health or tax data) and signs it.
+1. The Claims Provider issues a JSON Web Token (JWT) containing the claims (e.g., specific health or tax data) and signs it.
 2. The OP receives this JWT.
 3. The OP places this entire, signed JWT into a single, special claim, typically named `_aggregated_claims` (or a custom name if negotiated), within the UserInfo response or the ID Token. The OP signs the containing token.
 
-The RP receives the claims within the main token structure, but must then validate the **inner JWT** signature against the public key of the Claims Provider to trust the source of the claims. The claims themselves are not directly at the top level; they are retrieved by decoding and validating the nested JWT.
+The RP receives the claims within the main token structure, but must then validate the inner JWT signature against the public key of the Claims Provider to trust the source of the claims.
+The claims themselves are not directly at the top level; they are retrieved by decoding and validating the nested JWT.
+
+:::note Example Aggregated Claims
+
+```json title="OpenID Provider (OP) Response"
+{
+   "sub": "248289761001",
+   "name": "Jane Doe",
+   "given_name": "Jane",
+   "family_name": "Doe",
+   "email": "janedoe@example.com",
+   "birthdate": "0000-03-22",
+   "_claim_names": {
+   //highlight-start
+     "country": "src1",
+     "is_customer": "src1",
+   //highlight-end
+    },
+   "_claim_sources": {
+   //highlight-start
+     "src1": { "JWT": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2NybS5leGFtcGxlLmNvbSIsImNvdW50cnkiOiJVUyIsImlzX2N1c3RvbWVyIjp0cnVlfQ.GsIt_wy9Nimn74O-VYYPf3nKxqRio6_bCWkXNJ_Q0Do" },
+   //highlight-end
+   }
+}
+```
+
+The aggregated claim is included as a signed JWT token in the OpenID Provider's response.
+The token contains the claims from the Claims Provider.
+
+```json title="Signed JWT Token"
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.
+eyJpc3MiOiJodHRwczovL2NybS5leGFtcGxlLmNvbSIsImNvdW50cnkiOiJVUyIsImlzX2N1c3RvbWVyIjp0cnVlfQ.
+sIt_wy9Nimn74O-VYYPf3nKxqRio6_bCWkXNJ_Q0Do
+```
+
+The OpenID Standard describes the format as `jwt_header.jwt_part2.jwt_part3`.
+You can decode the JWT using a tool like [jwt.io](https://jwt.io):
+
+* Typ: `JWT`
+* Alg: `HS256`
+* Signing key: `a-string-secret-at-least-256-bits-long`
+
+```json title="Pseudo-Decoded JWT"
+//jwt_header
+{
+    "typ": "JWT",
+    "alg": "HS256"
+}
+//jwt_part2
+{
+   "iss": "https://crm.example.com",
+   "country": "US",
+   "is_customer": true,
+}
+//jwt_part3
+{
+   "a-string-secret-at-least-256-bits-long"
+}
+
+```
+
+:::
 
 ## References
 
