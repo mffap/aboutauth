@@ -22,8 +22,8 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * [Scopes in OpenID Connect](9-standard-openid-connect-scopes.md)
 * [Standard Claims](./standard-claims)
 * [UserInfo Request](11-userinfo-request.md)
-* Aggregated and Distributed Claims
-* Passing a Request Object by Value
+* [Aggregated and Distributed Claims](12-aggregated-and-distributed-claims.md)
+* [Passing Request Parameters as JWT](13-passing-request-parameters-as-jwt)
 * [Self-Issued OpenID Provider](13-self-issued-openid-provider.md)
 * Subject Identifier Types
 * Client Authentication
