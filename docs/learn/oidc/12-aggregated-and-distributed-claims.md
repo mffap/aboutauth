@@ -104,6 +104,7 @@ Response from Claim Provider
 ## Aggregated Claims
 
 Aggregated Claims allow a primary OP to pass claims from a third-party Claims Provider to the Relying Party (RP) while still acting as the single assertion point.
+The claims are included in the OP response by value as an aggregation of claims from different Claims Providers.
 
 ```mermaid
 flowchart-elk LR
@@ -183,9 +184,32 @@ You can decode the JWT using a tool like [jwt.io](https://jwt.io):
 
 :::
 
+### Registration and User Consent
+
+The [OpenID Connect Claims Aggregation 1.0 - Draft 03, 2025](https://openid.net/specs/openid-connect-claims-aggregation-1_0.html) draft discusses how a user can give consent in an aggregated claims model.
+
+In the aggregated claims model, the OpenID Provider (OP) must establish a trust relationship with the claims provider.
+This can be achieved by when the OP registers as an OIDC client to a Claims Provider.
+
+Before collecting the claims on behalf of the subject, OP must collect consent from the user for all claims collected.
+
+There are four phases involved:
+
+1. CP Discovery Phase: OP discovers Claims Provider's metadata with the [discovery endpoint](openid-connect-endpoints-and-requests.mdx#discovery-endpoint).
+2. OP Registration Phase (OP &rarr; CP): OP registers to Claims Provider as a relying party (RP) via [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html).
+3. Setup Phase (CP &rarr; OP): OP obtains the access and refresh tokens from the Claims Provider. The user must give consent for each claim requested from a claims provider. The granting must involve active user interaction and must be done with an [OIDC authentication request](3-authentication-request.md).
+4. Delivery Phase (RP &rarr; OP &larr; CP):
+   1. Claims Request: RP makes authentication and claims request to OP,
+   2. Request Verification: OP validates the request,
+   3. Subject Granting: OP authenticates the user, displays consent screen, and obtains consent through explicit action,
+   4. Claims Collection: OP fetches relevant claim sets from CPs' [UserInfo endpoints](openid-connect-endpoints-and-requests.mdx#userinfo-endpoint),
+   5. Claims Delivery: OP respond to the RP in the previously defined format with the collected claims as embedded, signed JWT token,
+   6. Claims Verification: the RP verifies the response including embedded JWT signatures and trust to the individual Claims Providers.
+
 ## References
 
 * [OpenID Connect Core 1.0 incorporating errata set 2 - Aggregated and Distributed Claims](https://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims)
 * [OpenID Connect as a KYC Token distribution protocol](https://ec.europa.eu/futurium/sites/futurium/files/7_nat_sakimura_openid.pdf)
 * [OpenID Connect Claims Aggregation Draft 02, 2021](https://openid.net/specs/openid-connect-claims-aggregation-1_0-02.html)
 * [OpenID Connect Claims Aggregation 1.0 - Draft 03, 2025](https://openid.net/specs/openid-connect-claims-aggregation-1_0.html)
+* [OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2](https://openid.net/specs/openid-connect-registration-1_0.html)
