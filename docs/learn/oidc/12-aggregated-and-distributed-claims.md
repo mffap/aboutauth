@@ -5,9 +5,20 @@ tags: [oidc, claims]
 
 # Aggregated and Distributed Claims in OpenID Connect
 
-In OpenID Connect (OIDC), **[Standard Claims](10-standard-claims.mdx)** (like `sub`, `email`, `name`) and **[Custom Claims](10-standard-claims.mdx#custom-claims)** are attributes directly asserted and digitally signed by the primary **OpenID Provider (OP)**.
-However, OIDC includes two mechanisms, **Aggregated Claims** and **Distributed Claims**, that allow an OP to integrate data from external sources, known as **Claims Providers**.
+In OpenID Connect (OIDC), **[Standard Claims](10-standard-claims.mdx)** (like `sub`, `email`, `name`) and **[Custom Claims](10-standard-claims.mdx#custom-claims)** are attributes directly asserted and digitally signed by the primary OpenID Provider (OP).
+However, OIDC includes two mechanisms, **Aggregated Claims** and **Distributed Claims**, that allow an OP to integrate data from external sources, such as an CRM system, payment provider, employee directory, known as Claims Providers.
 These mechanisms enable the separation of concerns and the integration of specialized attribute authorities.
+
+## Summary and Comparison
+
+| Feature | Standard/Custom Claims | Aggregated Claims | Distributed Claims |
+| :--- | :--- | :--- | :--- |
+| **Source Asserted By** | Primary OpenID Provider (OP) | Claims Provider | Claims Provider |
+| **Return Value** | Literal key-value pair e.g., `"name": "Jane Doe"` | Nested JWT signed by Claims Provider. | JSON object with `endpoint` and `access_token` as reference. |
+| **Assertion of Trust** | OP's signature on the token | OP's signature on the container + Claims Provider's signature on the nested JWT. | P's signature on the container + RP must trust the secure channel to the third-party Claims Provider. |
+| **RP Retrieval Method** | Direct fetch from ID Token or UserInfo Endpoint. | Direct fetch from ID Token or UserInfo Endpoint; requires **nested JWT validation**. | **Separate API call** by the RP to the Claims Provider's endpoint. |
+| **Data Flow** | OP &rarr; RP | Claims Provider &rarr; OP &rarr; RP | Claims Provider &rarr; RP (Direct) |
+| **Primary Use Case** | Core identity data. | Integrating claims from partners while maintaining the OP as the delivery channel. | Large, sensitive, or external claims that require an independent fetch. |  
 
 ## Distributed Claims
 
@@ -32,7 +43,7 @@ This JSON object must contain three required fields:
 
 The RP must make a separate HTTP GET request to the `endpoint` URL, presenting the provided `access_token` in the Authorization header, to fetch the actual claims. This introduces an extra network hop and a dependency on the Claims Provider's availability and security model.
 
-:::note Example Distributed Claims
+:::note Example Distributed Claims: OpenID Provider (OP) Response
 
 ```json
 {
@@ -43,23 +54,50 @@ The RP must make a separate HTTP GET request to the `endpoint` URL, presenting t
    "email": "janedoe@example.com",
    "birthdate": "0000-03-22",
    "_claim_names": {
+   //highlight-start
      "country": "src1",
      "is_customer": "src1",
+   //highlight-end
      "payment_info": "src2",
     },
    "_claim_sources": {
+   //highlight-start
      "src1": {
-        "endpoint": "https://crm.example.com/claim_source"
+        "endpoint": "https://crm.example.com/claim_source", 
+        "access_token": "ksj3n283dke"
      },
+   //highlight-end
      "src2": {
         "endpoint": "https://payments.example.com/claim_source",
-        "access_token": "ksj3n283dke"
      }
    }
 }
 ```
 
-*Line breaks for demonstration purposes*
+:::
+
+:::note Example Distributed Claims: Claim Provider 
+
+The client application needs to send a second request to the claim provider to receive the distributed claims.
+
+Example get request to the Claims Provider
+
+```http 
+GET /claim_source HTTP/1.1
+Host: crm.example.com
+Authentication: Bearer ksj3n283dke
+```
+
+Response from Claim Provider
+
+```json
+{
+   "iss": "https://crm.example.com",
+   "country": "US",
+   "is_customer": true,
+}
+```
+
 :::
 
 ## Aggregated Claims
@@ -81,23 +119,6 @@ flowchart-elk LR
 3. The OP places this entire, signed JWT into a single, special claim, typically named `_aggregated_claims` (or a custom name if negotiated), within the UserInfo response or the ID Token. The OP signs the containing token.
 
 The RP receives the claims within the main token structure, but must then validate the **inner JWT** signature against the public key of the Claims Provider to trust the source of the claims. The claims themselves are not directly at the top level; they are retrieved by decoding and validating the nested JWT.
-
-## Differentiation
-
-| Feature | Standard/Custom Claims | Aggregated Claims | Distributed Claims |
-| :--- | :--- | :--- | :--- |
-| **Source Asserted By** | Primary OpenID Provider (OP) | Claims Provider | Claims Provider |
-| **RP Retrieval Method** | Direct fetch from ID Token or UserInfo Endpoint. | Direct fetch from ID Token or UserInfo Endpoint; requires **nested JWT validation**. | **Separate API call** by the RP to the Claims Provider's endpoint. |
-| **Data Flow** | OP $\rightarrow$ RP | Claims Provider $\rightarrow$ OP $\rightarrow$ RP | Claims Provider $\rightarrow$ RP (Direct) |
-| **Primary Use Case** | Core identity data. | Integrating claims from partners while maintaining the OP as the delivery channel. | Large, sensitive, or external claims that require an independent fetch. |
-
-## Claims Hierarchy
-
-| Type | How Value is Returned | Assertion of Trust |
-| :--- | :--- | :--- |
-| **Standard/Custom** | Literal value (e.g., `"John Doe"`). | OP's signature on the token. |
-| **Aggregated** | Nested JWT signed by Claims Provider. | OP's signature on the container + Claims Provider's signature on the nested JWT. |
-| **Distributed** | JSON object with `endpoint` and `access_token`. | OP's signature on the container + RP must trust the secure channel to the third-party Claims Provider. |
 
 ## References
 
