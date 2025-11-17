@@ -37,6 +37,9 @@ OpenID specifies the following request parameters for authentication:
 * `registration`: (optional) This allows a client to dynamically register itself with the authorization server during the authentication process. Instead of pre-registering the client, this parameter provides client registration information directly within the initial request[^2].
 * `claims`: (optional) This allows a client application to request specific [claims](10-standard-claims.mdx) (user attributes) from the authorization server. It provides a structured way to define which user information the client needs beyond the standard scopes. The "claims" parameter allows for more fine-grained control over which specific claims are requested, beyond the standard scopes[^3].
 * `claims_locales`: (optional) This is used to request that claims (user attributes) be returned in specific languages or locales. It allows client applications to specify their preferred languages for user information[^4].
+
+## Passing request parameters as reference
+
 * `request`: (optional) This provide mechanisms for passing [authorization request parameters as a JWT token](13-passing-request-parameters-as-jwt.md), instead of embedding them in the URL's query string. This allows for signing or encrypting the request, enhancing security and preventing tampering.
 * `request_uri`: (optional) This parameter provides a URI where the authorization server can retrieve the [authorization request as a JWT token as reference](13-passing-request-parameters-as-jwt.md). Passing parameters by reference allows to encrypt and set a constant set of parameters in advance.
 
