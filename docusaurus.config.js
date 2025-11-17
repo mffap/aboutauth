@@ -42,6 +42,10 @@ const config = {
     mermaid: true,
     emoji: false
   },
+
+  plugins: [
+    require.resolve('./src/plugins/link-reference.js'),
+  ],
   trailingSlash: true,
   themes: ['@docusaurus/theme-mermaid'],
   presets: [
