@@ -11,8 +11,9 @@ const url = require('url');
  * @returns {import('@docusaurus/types').Plugin}
  */
 module.exports = function pluginExternalLinks(context, options) {
-    const { siteDir } = context;
-
+  // Access siteDir from the context provided when the plugin is initialized
+  const { siteDir } = context;
+  
   return {
     name: 'docusaurus-plugin-external-links',
 
@@ -111,7 +112,7 @@ module.exports = function pluginExternalLinks(context, options) {
         }
       }
 
-      // 4. Write the results to a CSV file
+      // 4. Write the results to a CSV file in the new path (project root)
       const reportContent = externalLinks.map(link => 
         // Format: Clean URL, Original Link URL, Link Text, Referring Page/Origin
         `${link.cleanUrl},${link.originalUrl},${link.text},${link.originPage}`
@@ -119,11 +120,16 @@ module.exports = function pluginExternalLinks(context, options) {
 
       const csvHeader = 'Clean URL,Original URL,Link Text,Referring Page\n';
       const outputFilename = 'external_links_report.csv';
+      
+      // Define the new output directory (.aboutauth inside the project root: siteDir)
       const outputDir = path.join(siteDir, '.aboutauth');
       const outputPath = path.join(outputDir, outputFilename);
 
+      // Create the directory recursively if it doesn't exist
+      await fs.mkdir(outputDir, { recursive: true });
+
       await fs.writeFile(outputPath, csvHeader + reportContent);
-      console.log(`\n✅ External link compilation finished. Report saved to: ${path.basename(outputDir)}/${outputFilename}`);
+      console.log(`\n✅ External link compilation finished. Report saved to: .aboutauth/${outputFilename}`);
     },
   };
 };
