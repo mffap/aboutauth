@@ -15,7 +15,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * [ID Token](2-id-token.md)
 * [Authentication Request](3-authentication-request.md)
 * [Token Request](4-token-request.md)
-* [Authorization Code Flow](./authorization-code-flow-with-proof-key-for-code-exchange-pkce/)
+* [Authorization Code Flow](authorization-code-flow-with-proof-key-for-code-exchange-pkce.md)
 * Implicit Flow
 * Hybrid Flow
 * [Initiating Login from a Third Party](8-initiating-login-from-a-third-party-sso.md)
@@ -23,7 +23,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * [Standard Claims](10-standard-claims.mdx)
 * [UserInfo Request](11-userinfo-request.md)
 * [Aggregated and Distributed Claims](12-aggregated-and-distributed-claims.md)
-* [Passing Request Parameters as JWT](13-passing-request-parameters-as-jwt)
+* [Passing Request Parameters as JWT](13-passing-request-parameters-as-jwt.md)
 * [Self-Issued OpenID Provider](14-self-issued-openid-provider.md)
 * Subject Identifier Types
 * Client Authentication
