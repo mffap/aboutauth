@@ -2,13 +2,13 @@
 tags: [oidc, authentication, jwt]
 ---
 
-# Passing Request Parameters as JWT
+# Passing Request Parameters as JWT and Reference
 
 [OpenID Connect Core 1.0 incorporating errata set 2 -  Passing Request Parameters as JWTs](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)
 
 The standard OpenID Connect (OIDC) [Authorization Request](3-authentication-request.md) relies on passing parameters via the query string of the Authorization Endpoint URL.
-For use cases requiring data integrity, non-repudiation, or support for larger parameter sets, OIDC allows to communicate all the
-A Request Object is a JSON Web Token (JWT) that encapsulates all the [standard Authorization Request parameters](3-authentication-request.md#auth-request-parameters) as Request Object in form of a JSON Web Token (JWT) by value or reference.
+For use cases requiring data integrity, non-repudiation, or support for larger parameter sets, OIDC allows to transmit the Authorization Request parameters as a Request Object.
+A Request Object encapsulates all the [standard Authorization Request parameters](3-authentication-request.md#auth-request-parameters) in form of a JSON Web Token (JWT) by value or reference.
 
 Passing parameters directly in the URL exposes them to potential third-party modification before reaching the Authorization Server.
 By sending the parameters within a signed JWT (a JWS), the Client guarantees the Authorization Server receives them exactly as intended.
@@ -18,17 +18,40 @@ Using a JWE (JSON Web Encryption) within the Request Object can ensure confident
 
 The Request Object is transmitted to the Authorization Server using one of two specific [Authorization Request parameters](3-authentication-request.md#auth-request-parameters).
 
-### Passing request parameters as JWT
+### Passing Request Parameters as JWT
 
-The entire JWT is passed directly as the value of the `request` parameter. The Authorization Server processes the JWT immediately upon receipt.
+The entire JWT is passed directly as the value of the `request` parameter.
+The Authorization Server processes the JWT immediately upon receipt.
+
+Parameters sent as JWT supersede URL parameters.
+You could include `state` and `nonce` in the JWT payload, but the Authorization Server should take the values from the URL parameters.
+Sending more static payloads as JWT can act as a pre-configured authentication scenario.
+
+:::info Mandatory Parameters
+For the request to be a valid OAuth 2.0 authorization request `response_type`, `client_id`, `cope` must be included in the URL parameters.
+To indicate the underlying OpenID Connect process `scope` must contain at least the `openid` scope.
+
+The parameter values must match the the values in the request object.
+
+For first time users this may be confusing. OpenID Connect is an extension to OAuth 2.0, this leads to these kinds of conditions when using certain features of OpenID Connect.
+:::
 
 ```http title="Passing parameters as JWT in an Authorization Request"
 GET /authorize? HTTP/1.1
-  state=af0ifjsldkj
+  //highlight-start
+  response_type=code%20id_token
+  &client_id=s6BhdRkqt3
+  &scope=openid
+  //highlight-end
+  &state=af0ifjsldkj
   &nonce=n-0S6_WzA2Mj
+  //highlight-start
   &request=eyJhbGciOiJSUzI1NiIsImtpZCI6ImsyYmRjIn0.eyJpc3MiOiJzNkJoZFJrcXQzIiwiYXVkIjoiaHR0cHM6Ly9pZHAuYWJvdXRhdXRoLmNvbSIsInJlc3BvbnNlX3R5cGUiOiJjb2RlIGlkX3Rva2VuIiwiY2xpZW50X2lkIjoiczZCaGRSa3F0MyIsInJlZGlyZWN0X3VyaSI6Imh0dHBzOi8vYXBwLmFib3V0YXV0aC5vcmcvY2IiLCJzY29wZSI6Im9wZW5pZCIsIm1heF9hZ2UiOjg2NDAwLCJjbGFpbXMiOnsidXNlcmluZm8iOnsiZ2l2ZW5fbmFtZSI6bnVsbCwibmlja25hbWUiOm51bGwsImVtYWlsIjp7ImVzc2VudGlhbCI6dHJ1ZX19LCJpZF90b2tlbiI6eyJlbWFpbCI6eyJlc3NlbnRpYWwiOnRydWV9LCJhY3IiOnsiZXNzZW50aWFsIjp0cnVlLCJ2YWx1ZXMiOlsidXJuOm1hY2U6aW5jb21tb246aWFwOnNpbHZlciJdfX19fQ.BdVs6nmYQE_yevKrgZBzufhyVEyExG7LMVSTDsYgin3xXPUmy3nYGLCR48xpmcm_LEdA8usyrctVW_Sybcd4ENW7kQJISzqinnYRcfH1qaAA1jbPJGuB3KNpCc6DrN9wOnStA7Yt2n_hZmm2vQ4BWhrXFby_wuFUQLTWOWiqfoo2kr35UxuSNMTW8110W7Xdz473yohh3ZVtceIQo1mgaF6WV-3WAp8tG_eG5RrbQIzN4EjbtwjbQ2H2E_UvncTsuy79jyMQCBblNVQDvXrRx-dt4MgqEDps2OkSYQPElZR33DbdjE6g-IMtfFoq5AqKgWRwQiRAY8inA6kGB-t5Eg
+  //highlight-end
 Host: idp.aboutauth.com
 ```
+
+The following payload is sent as signed JWT in the `request` parameter:
 
 ```json title="JWT Payload"
 {
@@ -73,7 +96,6 @@ Host: idp.aboutauth.com
 }
 ```
 
-
 ```json title="Private Key"
 {
   "kty": "RSA",
@@ -93,25 +115,34 @@ Host: idp.aboutauth.com
   "qi": "GaKPo6gbW_D-RC2VaXskJus4oqs89Org_glOiSnTBKjFgy0XqIf0Hw8x8rkAHPdCff1suF_yJI6ffUal0FvN3jKRwNNDj-0zVfCbnZjFPJSzFV_pNhE7rubfC9bRjOehayXsDVd-gAgDhoqRMgighgv8mehZEaQnOQDfQn9WOOc"
 }
 ```
+
 </details>
 
-### Passing request parameters as a reference
+### Passing Request Parameters by Reference
 
-A URL pointing to the Request Object is passed as the value of the `request_uri` parameter.
+The application exposes an URL where the Request Object is available and passes the URL in the `request_uri` parameter of the Authorization Request.
 The Authorization Server must retrieve the JWT from this URL before processing the request.
 This method is necessary when the JWT exceeds the limits of a standard URL, or when the Client requires a separate, secure channel for transmission.
 
-## Request Object Structure
+```http title="Passing parameters by reference in an Authorization Request"
+GET /authorize? HTTP/1.1
+    response_type=code%20id_token
+    &client_id=s6BhdRkqt3
+    &scope=openid
+    &state=af0ifjsldkj
+    &nonce=n-0S6_WzA2Mj
+    //highlight-start
+    &request_uri=https%3A%2F%2Fclient.example.org%2Frequest.jwt%23GkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
+    //highlight-end
+Host: idp.aboutauth.com
+```
 
-The Request Object is a standard JWT with the [Authorization Request parameters](3-authentication-request.md#auth-request-parameters) serving as claims in the payload, alongside specific mandatory and recommended JWT claims:
+```http title="Authorization Server fetches the Request Object"
+GET /request.jwt#GkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM HTTP/1.1
+Host: app.aboutauth.org
+```
 
-  * **`iss` (Issuer):** **Mandatory**. Must be the **Client ID** of the requesting application.
-  * **`aud` (Audience):** **Mandatory**. Must be the **Authorization Server's Issuer Identifier**.
-  * **`exp` (Expiration Time):** **Mandatory**. Defines the time after which the JWT must not be accepted by the AS.
-  * **`iat` (Issued At):** **Recommended**. The time the Request Object was created.
-  * **`jti` (JWT ID):** **Recommended**. A unique identifier for the JWT, used by the AS to prevent replay attacks if a `request_uri` is used more than once.
-
-Other standard OIDC parameters, such as `client_id`, `scope`, `response_type`, and `redirect_uri`, are included as claims within the JWT payload instead of being passed as separate URL query parameters.
+The relying party (application) should prevent the Authorization Server to cache the request_uri by using a distinct URI for each Authorization Request (eg, by appending a fragment).
 
 ## Client Registration
 
