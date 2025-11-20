@@ -25,7 +25,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * [Aggregated and Distributed Claims](12-aggregated-and-distributed-claims.md)
 * [Passing Request Parameters as JWT](13-passing-request-parameters-as-jwt.md)
 * [Self-Issued OpenID Provider](14-self-issued-openid-provider.md)
-* Subject Identifier Types
+* [Public and Pairwise Subject Identifier Types](15-public-and-pairwise-sub-identifiers.md)
 * Client Authentication
 * Signature and Encryption
 * [Offline Access](17-offline-access.md)
