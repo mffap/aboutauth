@@ -27,7 +27,7 @@ OIDC is not just for web apps. It works seamlessly with mobile apps, single-page
 * [Self-Issued OpenID Provider](14-self-issued-openid-provider.md)
 * [Public and Pairwise Subject Identifier Types](15-public-and-pairwise-sub-identifiers.md)
 * Client Authentication
-* Signature and Encryption
+* [Signature and Encryption](17-signature-and-encryption-key-rotation-jws-jwe.md)
 * [Offline Access](17-offline-access.md)
 * [Refresh Token](18-refresh-tokens.md)
 * [Endpoints and requests](./openid-connect-endpoints-and-requests.mdx)
